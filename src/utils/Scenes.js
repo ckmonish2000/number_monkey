@@ -16,7 +16,6 @@ export default function Scenes({ sprites, Bg = "" }) {
         src={`data:image/svg+xml;utf8,${encodeURIComponent(Bg)}`} />}
 
       {isLoading && <div className="isloading">
-        <img alt="" src={"apple"} className="applelogo" />
       </div>}
       {sprites}
     </div>

@@ -61,12 +61,6 @@ export default function useLoadAsset(Map) {
   }, [])
 
 
-
-  // const LoadSound = async () => {
-  //   const data = await AudioPlayer(main_audio_url)
-  //   setSound(data)
-  // }
-
   return { Loading, Bg }
 
 }

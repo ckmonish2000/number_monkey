@@ -11,6 +11,8 @@ export default function Intro() {
   if (Loading) {
     return <h1>hello</h1>
   }
+
+
   return <Scenes
     sprites={
       <>
