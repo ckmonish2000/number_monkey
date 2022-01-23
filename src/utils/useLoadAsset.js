@@ -10,12 +10,15 @@ export default function useLoadAsset(Map) {
   // const [mainAudio, setmainAudio] = useState({})
   const { Bg, setBg } = useContext(BGContext)
   const { Sound, setSound } = useContext(SoundContext)
-  const { SceneId, setSceneId, isLoading, setisLoading, Stripes, setStripes, StripeSound, setStripeSound } = useContext(SceneContext)
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext)
 
 
 
   useEffect(() => {
-    const newSceneData = {}
+    const newSceneData = {
+      sounds: ["xyz"],
+      sprites: []
+    }
 
     const loadImage = new Promise((resolve, reject) => {
       LoadImage(Map.Bg)
@@ -28,9 +31,33 @@ export default function useLoadAsset(Map) {
         })
     })
 
+    const loadAudio = Promise.all(Map.sounds.map(v => {
+      return AudioPlayer(v)
+    }))
 
-    // LoadSound()
-    // setLoading(false)
+    loadAudio
+      .then(v => { newSceneData["sounds"] = v })
+      .catch(err => { console.log(err) })
+
+    const loadSprites = Promise.all(Map.sprites.map(v => {
+      return LoadImage(v)
+    }))
+
+    loadSprites
+      .then(v => { newSceneData["sprites"] = v })
+      .catch(err => { console.log(err) })
+
+    setAssets({ ...Assets, [Map.id]: newSceneData })
+
+    Promise.all([loadImage, loadAudio, loadSprites])
+      .then(v => {
+        // console.log(v)
+        setisLoading(false)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
   }, [])
 
 

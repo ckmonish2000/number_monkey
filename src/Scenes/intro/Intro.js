@@ -5,7 +5,8 @@ import IntroMap from './AssetMap';
 
 
 export default function Intro() {
-  const { Bg } = useLoadAsset(IntroMap)
+  const { Bg, xyz, isLoading } = useLoadAsset(IntroMap)
+
   return <Scenes
     sprites={
       <>
