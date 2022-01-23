@@ -3,8 +3,10 @@ import { SceneContext } from '../contexts/SceneContext'
 import "../styles/Scenes.css"
 import apple from "./Apple.svg"
 
-export default function Scenes({ stripes, Bg = "" }) {
+export default function Scenes({ sprites, Bg = "" }) {
   const { setSceneId, setisLoading, isLoading } = useContext(SceneContext)
+
+
   return (
     <div id="vision">
       {Bg !== "" && <img
@@ -16,7 +18,7 @@ export default function Scenes({ stripes, Bg = "" }) {
       {isLoading && <div className="isloading">
         <img alt="" src={apple} className="applelogo" />
       </div>}
-      {stripes}
+      {sprites}
     </div>
   )
 }
