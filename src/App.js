@@ -1,10 +1,10 @@
-
+import GameContainer from "./utils/GameContainer"
 
 function App() {
   return (
-    <div className="App">
+    <GameContainer>
       <h1>hello</h1>
-    </div>
+    </GameContainer>
   );
 }
 
