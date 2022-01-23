@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, Fragment } from 'react'
 import { SceneContext } from '../contexts/SceneContext'
-import "../styles/Scenes.css"
-import apple from "./Apple.svg"
+// import "../styles/Scenes.css"
+// import apple from "./Apple.svg"
 
 export default function Scenes({ sprites, Bg = "" }) {
   const { setSceneId, setisLoading, isLoading } = useContext(SceneContext)
@@ -16,7 +16,7 @@ export default function Scenes({ sprites, Bg = "" }) {
         src={`data:image/svg+xml;utf8,${encodeURIComponent(Bg)}`} />}
 
       {isLoading && <div className="isloading">
-        <img alt="" src={apple} className="applelogo" />
+        <img alt="" src={"apple"} className="applelogo" />
       </div>}
       {sprites}
     </div>

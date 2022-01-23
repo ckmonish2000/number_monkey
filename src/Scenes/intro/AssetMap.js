@@ -2,7 +2,7 @@ const imgUrl = "/internal/images/"
 const soundUrl = "/internal/sounds/"
 
 const IntroMap = {
-  Bg: `${imgUrl}Introbg.svg`,
+  Bg: `${imgUrl}Intro-bg.svg`,
 
   sprites: [
     `${imgUrl}Intro-Text.svg`,
