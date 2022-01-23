@@ -6,7 +6,8 @@ export const SceneContext = createContext();
 export default function SceneContextProvider({ children }) {
   const [SceneId, setSceneId] = useState("/")
   const [isLoading, setisLoading] = useState(true)
-
+  const [Stripes, setStripes] = useState({})
+  const [StripeSound, setStripeSound] = useState({})
 
   useEffect(() => {
 
@@ -17,7 +18,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading }}>
+    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Stripes, setStripes, StripeSound, setStripeSound }}>
       {children}
     </SceneContext.Provider>
   )
