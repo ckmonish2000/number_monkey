@@ -1,5 +1,6 @@
 const imgUrl = "/internal/images/"
 const soundUrl = "/internal/sounds/"
+const lottieUrl = "/internal/lottie/"
 
 const IntroMap = {
   id: "intro",
@@ -13,6 +14,10 @@ const IntroMap = {
 
   sounds: [
     `${soundUrl}Intro.mp3`
+  ],
+
+  lottie: [
+    `${lottieUrl}Scene_01.json`,
   ]
 }
 

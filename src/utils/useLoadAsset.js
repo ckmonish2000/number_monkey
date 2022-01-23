@@ -4,6 +4,7 @@ import { SoundContext } from '../contexts/SoundContext'
 import { SceneContext } from "../contexts/SceneContext"
 import { LoadImage } from '../utils/loadImage'
 import { AudioPlayer } from './loadAudio'
+import { LoadJson } from "./loadJson"
 
 export default function useLoadAsset(Map) {
   const [Loading, setLoading] = useState(true)
@@ -45,6 +46,16 @@ export default function useLoadAsset(Map) {
 
     loadSprites
       .then(v => { newSceneData["sprites"] = v })
+      .catch(err => { console.log(err) })
+
+
+
+    const loadLottie = Promise.all(Map.lottie.map(v => {
+      return LoadJson(v)
+    }))
+
+    loadLottie
+      .then(v => { newSceneData["lottie"] = v })
       .catch(err => { console.log(err) })
 
     setAssets({ ...Assets, [Map.id]: newSceneData })

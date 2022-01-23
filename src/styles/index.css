@@ -8,6 +8,10 @@ body {
   animation: fade 1s forwards 1; 
 }
 
+#fadeup{
+  animation: fade 2s forwards 1; 
+}
+
 @keyframes fade {
   from { opacity:0}
   to { opacity:1}
