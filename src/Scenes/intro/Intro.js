@@ -6,6 +6,7 @@ import PlayAudio from "../../utils/playAudio"
 import IntroMap from './AssetMap';
 import lottie from "lottie-web"
 import "../../styles/intro.css"
+import Image from '../../utils/elements/Image';
 
 
 export default function Intro() {
@@ -33,11 +34,17 @@ export default function Intro() {
     sprites={
       <>
         {/* Title */}
-        {intro?.sprites[0] && <img
+
+        <Image
+          src={intro?.sprites[0]}
+          alt="txt"
+          id="fadeup"
+          className="dressing_txt_img" />
+        {/* {intro?.sprites[0] && <img
           alt="txt"
           id="fadeup"
           className="dressing_txt_img"
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(intro?.sprites[0])}`} />}
+          src={`data:image/svg+xml;utf8,${encodeURIComponent(intro?.sprites[0])}`} />} */}
 
         <button
           className="play_btn"

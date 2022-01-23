@@ -9,7 +9,7 @@ body {
 }
 
 #fadeup{
-  animation: fade 2s forwards 1; 
+  animation: fade 1s forwards 1; 
 }
 
 @keyframes fade {
