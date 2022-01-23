@@ -52,7 +52,7 @@ export default function useLoadAsset(Map) {
     Promise.all([loadImage, loadAudio, loadSprites])
       .then(v => {
         // console.log(v)
-        setisLoading(false)
+        setLoading(false)
       })
       .catch(err => {
         console.log(err)
