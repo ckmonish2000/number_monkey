@@ -5,8 +5,8 @@ export default function Router({ children, sceneId }) {
   const { SceneId } = React.useContext(SceneContext)
 
   return SceneId === sceneId ? (
-    <React.Fragment>
+    <div className="fadeup">
       {children}
-    </React.Fragment>
+    </div>
   ) : null
 }

@@ -5,7 +5,7 @@ import BackgroundProvider from './contexts/Background';
 import SceneContextProvider from './contexts/SceneContext';
 // import SelectorContextProvider from './contexts/SelectorContext';
 import SoundContextProvider from './contexts/SoundContext';
-import "./index.css"
+import "./styles/index.css"
 
 
 ReactDOM.render(

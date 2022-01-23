@@ -1,0 +1,14 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: black;
+}
+
+.fadeup{
+  animation: fade 1s forwards 1; 
+}
+
+@keyframes fade {
+  from { opacity:0}
+  to { opacity:1}
+}
