@@ -60,7 +60,7 @@ export default function useLoadAsset(Map) {
 
     setAssets({ ...Assets, [Map.id]: newSceneData })
 
-    Promise.all([loadImage, loadAudio, loadSprites])
+    Promise.all([loadImage, loadAudio, loadSprites, loadLottie])
       .then(v => {
         // console.log(v)
         setLoading(false)

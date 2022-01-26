@@ -3,6 +3,7 @@ import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
+import Animation from "./Scenes/Animations/Animations";
 
 function App() {
   const [Load, setLoad] = useState(true);
@@ -20,6 +21,10 @@ function App() {
     <GameContainer>
       <Router sceneId="/">
         <Intro />
+      </Router>
+
+      <Router sceneId="/Summer">
+        <Animation sceneName="summer" />
       </Router>
     </GameContainer>
   );

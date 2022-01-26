@@ -1,0 +1,13 @@
+#boy{
+  position: fixed;
+  bottom: -0.7%;
+  width: 25%;
+}
+
+
+#girl{
+  position: fixed;
+  bottom: -0.7%;
+  width: 25%;
+  left: 75%;
+}

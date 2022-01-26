@@ -27,7 +27,7 @@ export default function GameContainer({ children }) {
 
 
 
-  const styles = { height: `${height}px`, width: `${width}px`, position: "fixed", left: "50%", top: "50%", transform: "translate(-50%,-50%)" }
+  const styles = { overFlow: "hidden", height: `${height}px`, width: `${width}px`, position: "fixed", left: "50%", top: "50%", transform: "translate(-50%,-50%)" }
 
   return <div className="GameContainer" style={styles}>
     {children}

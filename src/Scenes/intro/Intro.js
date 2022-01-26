@@ -17,17 +17,23 @@ export default function Intro() {
   const Ref = useRef(null);
 
   useEffect(() => {
-    if (Assets.intro && Ref.current && !Loading) {
-      const ch = lottie.loadAnimation({
-        name: "placeholder",
-        container: Ref.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: intro?.lottie[0],
-      })
+    if (intro && Ref.current && !Loading) {
+      try {
+        const ch = lottie.loadAnimation({
+          name: "placeholder",
+          container: Ref.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: intro?.lottie[0],
+        })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }, [Assets, Loading])
+
+  console.log(intro?.sprites[1])
 
   return <Scenes
     Bg={Bg}
@@ -41,11 +47,20 @@ export default function Intro() {
           id="fadeup"
           className="dressing_txt_img" />
 
-        <button
+
+        <Image
+          src={intro?.sprites[1]}
+          alt="txt"
+          id="fadeup"
           className="play_btn"
-          onClick={() => { PlayAudio(intro?.sounds[0]) }}>
-          Play
-        </button>
+          onClick={() => {
+            const navi = () => {
+              setTimeout(() => { setSceneId("/Summer") }, 1000)
+            }
+
+            PlayAudio(intro?.sounds[0], navi)
+          }}
+        />
 
         <div ref={Ref} className="intro_lottie_container"></div>
       </>

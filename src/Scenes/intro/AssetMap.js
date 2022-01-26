@@ -1,6 +1,4 @@
-const imgUrl = "/internal/images/"
-const soundUrl = "/internal/sounds/"
-const lottieUrl = "/internal/lottie/"
+import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
 
 const IntroMap = {
   id: "intro",
@@ -9,6 +7,7 @@ const IntroMap = {
 
   sprites: [
     `${imgUrl}Intro-Text.svg`,
+    `${imgUrl}play.svg`,
   ],
 
 
