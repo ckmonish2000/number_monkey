@@ -17,15 +17,6 @@ export default function Trace({ sceneName }) {
   const [cap, setcap] = useState(false);
 
   // playing Sound
-
-  console.log(Assets[sceneName])
-  // useEffect(() => {
-  //   if (Assets[sceneName] && !Loading && !isLoading) {
-  //     PlayAudio(Assets[sceneName]?.sounds[0], () => {
-  //       PlayAudio(Assets[sceneName]?.sounds[1])
-  //     })
-  //   }
-  // }, [Assets, Loading, isLoading])
   return <Scenes
     Bg={Bg}
     sprites={
@@ -61,8 +52,6 @@ export default function Trace({ sceneName }) {
           id={pant ? "summer_pant" : ""}
           className="third"
         />
-
-
 
       </>
     }
