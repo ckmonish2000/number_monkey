@@ -40,11 +40,6 @@ export default function Intro() {
           alt="txt"
           id="fadeup"
           className="dressing_txt_img" />
-        {/* {intro?.sprites[0] && <img
-          alt="txt"
-          id="fadeup"
-          className="dressing_txt_img"
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(intro?.sprites[0])}`} />} */}
 
         <button
           className="play_btn"
