@@ -6,26 +6,68 @@
   width: 40%;
 }
 
-.summer_shirt{
+#move_shirt{
   position: fixed;
-  width: 20%;
-  bottom: 35%;
-  left: 13%;
   z-index: 99999;
+ animation:moveShirt 2s forwards 1;
 }
 
-.summer_pant{
+#summer_pant{
   position: fixed;
+  z-index: 9999;
+  animation:movePant 2s forwards 1;
+}
+
+#summer_cap{
+  position: fixed;
+  z-index: 9999;
+  animation:moveCap 2s forwards 1;
+}
+
+.first{
+  position: fixed;
+  bottom: 30%;
+  left: 35%;
   width: 20%;
+}
+
+
+.second{
+  position: fixed;
+  bottom: 30%;
+  left: 55%;
+  width: 20%;
+}
+
+.third{
+  position: fixed;
+  bottom: 30%;
+  left: 75%;
+  width: 20%;
+}
+
+
+@keyframes moveShirt {
+  to{
+    width: 20%;
+    bottom: 35%;
+    left: 13%;
+  }
+}
+
+@keyframes movePant {
+  to{
+    width: 20%;
   bottom: 16.5%;
   left: 13%;
-  z-index: 9999;
+  }  
 }
 
-.summer_cap{
-  position: fixed;
-  bottom: 72%;
-  width: 18%;
-  left: 14%;
-  z-index: 99999;
+
+@keyframes moveCap {
+  to{
+    bottom: 72%;
+    width: 18%;
+    left: 14%;
+  }  
 }
