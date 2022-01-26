@@ -1,0 +1,31 @@
+.char_pos{
+  position: fixed;
+  z-index: 9999;
+  bottom: 10%;
+  left: 3%;
+  width: 40%;
+}
+
+.summer_shirt{
+  position: fixed;
+  width: 20%;
+  bottom: 35%;
+  left: 13%;
+  z-index: 99999;
+}
+
+.summer_pant{
+  position: fixed;
+  width: 20%;
+  bottom: 16.5%;
+  left: 13%;
+  z-index: 9999;
+}
+
+.summer_cap{
+  position: fixed;
+  bottom: 72%;
+  width: 18%;
+  left: 14%;
+  z-index: 99999;
+}

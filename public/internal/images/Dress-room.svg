@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1600 900" style="enable-background:new 0 0 1600 900;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_00000040572239084497713990000017679700006369955993_);}
+	.st1{clip-path:url(#SVGID_00000076582067772769059990000011539462984244693637_);}
+	.st2{opacity:0.54;fill:#D7ADDB;enable-background:new    ;}
+	.st3{fill:#8C79A5;}
+	.st4{fill:#A57CA5;}
+	.st5{opacity:0.1;fill:#282828;enable-background:new    ;}
+	.st6{opacity:0.49;}
+	.st7{opacity:0.5;}
+	.st8{opacity:0.49;fill:#D5B8FF;enable-background:new    ;}
+	.st9{opacity:0.47;fill:#5F5472;enable-background:new    ;}
+	.st10{fill:#936C93;}
+	.st11{fill:#752E58;}
+	.st12{fill:#89405E;}
+	.st13{fill:#A45871;}
+	.st14{fill:#C67393;}
+	.st15{opacity:0.3;fill:#020202;enable-background:new    ;}
+</style>
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="1600" height="900"/>
+	</defs>
+	<clipPath id="SVGID_00000000219227457228410550000003175547238177114763_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g style="clip-path:url(#SVGID_00000000219227457228410550000003175547238177114763_);">
+		<g>
+			<defs>
+				<rect id="SVGID_00000069361127053275055670000018350001577858811822_" y="-2.7" width="1600" height="904.7"/>
+			</defs>
+			<clipPath id="SVGID_00000173159555282253039060000010536571657723691924_">
+				<use xlink:href="#SVGID_00000069361127053275055670000018350001577858811822_"  style="overflow:visible;"/>
+			</clipPath>
+			<g style="clip-path:url(#SVGID_00000173159555282253039060000010536571657723691924_);">
+				<path class="st2" d="M0,830.8C-7.2,740.4-8.3,559,92,372.4c33.3-61.7,74.6-118.7,123-169.5V-2.7H0V830.8z"/>
+				<rect y="-2.7" class="st3" width="1603" height="652.9"/>
+				<polygon class="st4" points="-237,835.2 9.9,649.3 1600,649.3 1600,900 -237,900 				"/>
+				<path class="st5" d="M-4.1,733.9c0,0,399.9-37.5,536,28.2s616.3,15.6,744.2-56.7s324-61.2,324-61.2V895H-124v-64.8L-4.1,733.9z"
+					/>
+				<g class="st6">
+					<g class="st7">
+						<rect x="131.4" class="st8" width="35.4" height="647.6"/>
+						<rect x="18.8" class="st8" width="35.4" height="647.6"/>
+						<rect x="243.2" class="st8" width="35.4" height="647.6"/>
+						<rect x="355" class="st8" width="35.4" height="647.6"/>
+						<rect x="466.8" class="st8" width="35.4" height="647.6"/>
+						<rect x="578.6" class="st8" width="35.4" height="647.6"/>
+						<rect x="690.4" class="st8" width="35.4" height="647.6"/>
+						<rect x="802.2" class="st8" width="35.4" height="647.6"/>
+						<rect x="1025.8" class="st8" width="35.4" height="647.6"/>
+						<rect x="1137.7" class="st8" width="35.4" height="647.6"/>
+						<rect x="914" class="st8" width="35.4" height="647.6"/>
+						<rect x="1249.4" class="st8" width="35.4" height="647.6"/>
+						<rect x="1361.3" class="st8" width="35.4" height="647.6"/>
+						<rect x="1473.1" class="st8" width="35.4" height="647.6"/>
+						<rect x="1584.9" class="st8" width="35.4" height="647.6"/>
+					</g>
+				</g>
+				<rect y="598.1" class="st9" width="1600" height="47.1"/>
+				<rect y="603.1" class="st10" width="1600" height="47.1"/>
+				<ellipse class="st11" cx="378.8" cy="778.8" rx="267.2" ry="59.3"/>
+				<ellipse class="st12" cx="380.2" cy="772.4" rx="267.2" ry="59.3"/>
+				<ellipse class="st13" cx="376.9" cy="766.1" rx="214.4" ry="42.5"/>
+				<ellipse class="st14" cx="376.9" cy="760.8" rx="148.4" ry="29.4"/>
+				<ellipse class="st15" cx="373.5" cy="764.1" rx="83.5" ry="18.5"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

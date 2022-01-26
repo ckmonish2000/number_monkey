@@ -6,7 +6,6 @@ import PlayAudio from "../../utils/playAudio"
 import SummerMap from './scene2map';
 import lottie from "lottie-web"
 import "../../styles/intro.css"
-import Image from '../../utils/elements/Image';
 import "../../styles/animation.css"
 
 export default function Animation({ sceneName }) {
