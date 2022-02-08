@@ -1,6 +1,6 @@
 .dressing_txt_img{
     width: 35%;
-    position: fixed;
+    position: absolute;
     bottom: 14%;
     left: 25%;
     background:#FFACF6;
@@ -11,7 +11,7 @@
 }
 
 .play_btn{
-    position: fixed;
+    position: absolute;
     z-index: 9;
     width: 10%;
     left: 43%;
@@ -21,7 +21,7 @@
 }
 
 .intro_lottie_container{
-  position: fixed;
+  position: absolute;
   bottom: 0%;
   z-index: 0;
   width: 100%;

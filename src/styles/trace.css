@@ -1,31 +1,31 @@
 .char_pos{
-  position: fixed;
+  position: absolute;
   z-index: 9999;
-  bottom: 10%;
-  left: 3%;
-  width: 40%;
+  bottom: 0%;
+  left: 10%;
+  width: 20%;
 }
 
 #move_shirt{
-  position: fixed;
+  position: absolute;
   z-index: 99999;
  animation:moveShirt 1s forwards 1;
 }
 
 #summer_pant{
-  position: fixed;
+  position: absolute;
   z-index: 9999;
   animation:movePant 1s forwards 1;
 }
 
 #summer_cap{
-  position: fixed;
+  position: absolute;
   z-index: 9999;
   animation:moveCap 1s forwards 1;
 }
 
 .first{
-  position: fixed;
+  position: absolute;
   bottom: 30%;
   left: 35%;
   width: 20%;
@@ -33,14 +33,14 @@
 
 
 .second{
-  position: fixed;
+  position: absolute;
   bottom: 30%;
   left: 55%;
   width: 20%;
 }
 
 .third{
-  position: fixed;
+  position: absolute;
   bottom: 30%;
   left: 75%;
   width: 20%;

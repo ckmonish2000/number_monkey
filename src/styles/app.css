@@ -2,7 +2,7 @@
   animation: FadeUpnDown 3s alternate infinite;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   color: white;
   display: flex;
   justify-content: center;
