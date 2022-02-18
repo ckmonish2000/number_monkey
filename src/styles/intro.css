@@ -185,6 +185,83 @@
   left: 45%;
 }
 
+
+
+
+.frog_start{
+  position: absolute;
+    bottom: -4.5%;
+    z-index: 0;
+    width: 20%;
+    height: 100%;
+    left: 15%;  
+}
+
+.frog_start_jump{
+  position: absolute;
+    bottom: -4.5%;
+    z-index: 0;
+    width: 20%;
+    height: 100%;
+    left: 15%;
+}
+
+.frog_second_jump{
+  position: absolute;
+    bottom: -3.8%;
+    z-index: 0;
+    width: 20%;
+    height: 100%;
+    left: 25.5%;
+    animation: topdown 1s linear forwards
+}
+
+@keyframes topdown {
+  to{
+    bottom: -6%;
+    left:24%
+  }
+}
+
+.frog_third_jump{
+  position: absolute;
+    bottom: -6%;
+    z-index: 0;
+    width: 20%;
+    height: 100%;
+    left:34%;
+    animation: fourthJump 1s linear forwards;
+}
+
+@keyframes fourthJump {
+  to{
+    left:32%;
+  }
+  
+}
+
+
+
+.frog_fourth_jump{
+  position: absolute;
+    bottom: -6%;
+    z-index: 0;
+    width: 20%;
+    height: 100%;
+    left:42%;
+    animation: fifthJump 1s linear forwards;
+}
+
+@keyframes fifthJump {
+  to{
+    left:40%;
+    bottom:-8%
+  }
+  
+}
+
+
+
 @keyframes play_btn {
   to{
     filter: drop-shadow(0px 0px 5px white);

@@ -3,6 +3,7 @@ import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
+import Frog from "./Scenes/intro/frog";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -22,6 +23,10 @@ function App() {
     <GameContainer>
       <Router sceneId="/">
         <Intro />
+      </Router>
+
+      <Router sceneId="/frog">
+        <Frog />
       </Router>
 
       {/* <Router sceneId="/Summer">

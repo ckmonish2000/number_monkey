@@ -14,7 +14,7 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets
 
-  const [count, setcount] = useState(3)
+  const [count, setcount] = useState(1)
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
   const Ref2 = useRef(null);
