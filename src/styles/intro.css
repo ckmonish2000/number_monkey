@@ -20,7 +20,7 @@
     animation:play_btn 2s alternate infinite !important;
 }
 
-.intro_lottie_container{
+.branch1_idle{
   position: absolute;
   bottom: 0%;
   z-index: 0;
@@ -29,7 +29,7 @@
   top: 0px;
 }
 
-.intro_lottie_container_2{
+.branch1_swing{
   position: absolute;
   bottom: 0%;
   z-index: 0;
@@ -38,6 +38,89 @@
   top: 0px;
   left: 73pt;
 }
+
+.branch2_idle{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 10.5%;
+}
+
+.branch3_idle{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 21.5%;
+}
+
+.branch4_idle{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 32.5%;
+}
+
+.branch5_idle{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 43.5%;
+}
+
+.branch2_swing{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 15%;
+}
+
+.branch3_swing{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 16.5%;
+}
+
+.branch4_swing{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 25.5%;
+}
+
+.branch5_swing{
+ 
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 38.5%;
+
+}
+
 .pause{
   position: absolute;
     bottom: 0px;
@@ -47,6 +130,59 @@
     background: red;
     width: fit-content;
     z-index: 9;
+}
+
+
+
+.swing_1{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 67%;
+    top: 0%;
+    left: 1%;
+}
+
+.swing_2{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 67%;
+  top: 0%;
+  left: 12%;
+}
+
+
+.swing_3{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 67%;
+  top: 0%;
+  left: 23%;
+}
+
+.swing_4{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 67%;
+  top: 0%;
+  left:34%;
+}
+
+.swing_5{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 67%;
+  top: 0%;
+  left: 45%;
 }
 
 @keyframes play_btn {

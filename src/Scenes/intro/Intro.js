@@ -14,11 +14,10 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets
 
-  const [count, setcount] = useState(1)
+  const [count, setcount] = useState(3)
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
   const Ref2 = useRef(null);
-
 
   // loading animation
   useEffect(() => {
@@ -42,9 +41,12 @@ export default function Intro() {
           animationData: intro?.lottie[1],
         })
 
-        ch2.addEventListener('complete', () => {
-          setswing(false)
-          console.log("completed honey");
+        ch2.addEventListener('enterFrame', () => {
+          if (Math.floor(ch2.currentFrame) === 33) {
+            setswing(false)
+            console.log("completed honey");
+          }
+
         })
       } catch (err) {
         console.log(err)
@@ -52,6 +54,62 @@ export default function Intro() {
     }
   }, [Assets, Loading])
 
+
+  const get_swing_class = () => {
+    switch (count) {
+      case 1:
+        return "branch1_swing"
+        break;
+      case 2:
+        return "branch1_swing"
+        break
+
+      case 3:
+        return "branch3_swing"
+        break
+
+      case 4:
+        return "branch4_swing"
+        break
+
+      case 5:
+        return "branch5_swing"
+        break
+
+
+      default:
+        break;
+    }
+  }
+
+
+
+  const get_idle_class = () => {
+    switch (count) {
+      case 1:
+        return "branch1_idle"
+        break;
+      case 2:
+        return "branch2_idle"
+        break
+
+      case 3:
+        return "branch3_idle"
+        break
+
+      case 4:
+        return "branch4_idle"
+        break
+
+      case 5:
+        return "branch5_idle"
+        break
+
+
+      default:
+        break;
+    }
+  }
 
 
   return <Scenes
@@ -62,36 +120,47 @@ export default function Intro() {
           className='pause'
           onClick={() => {
             setswing(true)
-            const ch = lottie.stop("swing")
-            const ch2 = lottie.play("swing")
+            lottie.stop("swing")
+            lottie.play("swing")
+            setcount(count + 1)
           }}
         >pause</button>
         {/* Title */}
 
-        {/* <Image
-          src={intro?.sprites[0]}
-          alt="txt"
-          id="fadeup"
-          className="dressing_txt_img" />
-
-
         <Image
-          src={intro?.sprites[1]}
-          alt="txt"
-          id="fadeup"
-          className="play_btn"
-          onClick={() => {
-            const navi = () => {
-              setTimeout(() => { setSceneId("/Summer") }, 1000)
-            }
-
-            PlayAudio(intro?.sounds[0], navi)
-          }}
+          style={{ display: count === 1 ? "none" : "" }}
+          className="swing_1"
+          src={intro?.sprites[0]}
         />
 
-      */}
-        <div ref={Ref} className="intro_lottie_container" style={{ opacity: !swing ? 1 : 0 }}></div>
-        <div ref={Ref2} className="intro_lottie_container_2" style={{ opacity: !swing ? 0 : 1 }}></div>
+        <Image
+          style={{ display: count === 2 ? "none" : "" }}
+          className="swing_2"
+          src={intro?.sprites[0]}
+        />
+
+        <Image
+          style={{ display: count === 3 ? "none" : "" }}
+          className="swing_3"
+          src={intro?.sprites[0]}
+        />
+
+        <Image
+          // style={{ display: count === 4 ? "none" : "" }}
+          className="swing_4"
+          src={intro?.sprites[0]}
+        />
+
+        <Image
+          style={{ display: count === 5 ? "none" : "" }}
+          className="swing_5"
+          src={intro?.sprites[0]}
+        />
+
+
+
+        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0 }}></div>
+        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1 }}></div>
       </>
     }
   />;
