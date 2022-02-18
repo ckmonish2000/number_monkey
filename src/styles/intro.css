@@ -24,10 +24,30 @@
   position: absolute;
   bottom: 0%;
   z-index: 0;
-  width: 100%;
+  width: 39%;
   height: 100%;
+  top: 0px;
 }
 
+.intro_lottie_container_2{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 39%;
+  height: 100%;
+  top: 0px;
+  left: 73pt;
+}
+.pause{
+  position: absolute;
+    bottom: 0px;
+    left: 187pt;
+    width: 20pt;
+    height: 20pt;
+    background: red;
+    width: fit-content;
+    z-index: 9;
+}
 
 @keyframes play_btn {
   to{

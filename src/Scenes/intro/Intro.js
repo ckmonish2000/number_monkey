@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from 'react';
+import { useContext, useRef, useEffect, useState } from 'react';
 import { SceneContext } from '../../contexts/SceneContext';
 import Scenes from "../../utils/Scenes"
 import useLoadAsset from '../../utils/useLoadAsset';
@@ -14,18 +14,37 @@ export default function Intro() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets
 
+  const [count, setcount] = useState(1)
+  const [swing, setswing] = useState(false)
   const Ref = useRef(null);
+  const Ref2 = useRef(null);
 
+
+  // loading animation
   useEffect(() => {
     if (intro && Ref.current && !Loading) {
       try {
         const ch = lottie.loadAnimation({
-          name: "placeholder",
+          name: "hang",
           container: Ref.current,
           renderer: "svg",
           loop: true,
           autoplay: true,
           animationData: intro?.lottie[0],
+        })
+
+        const ch2 = lottie.loadAnimation({
+          name: "swing",
+          container: Ref2.current,
+          renderer: "svg",
+          loop: false,
+          autoplay: false,
+          animationData: intro?.lottie[1],
+        })
+
+        ch2.addEventListener('complete', () => {
+          setswing(false)
+          console.log("completed honey");
         })
       } catch (err) {
         console.log(err)
@@ -33,15 +52,23 @@ export default function Intro() {
     }
   }, [Assets, Loading])
 
-  console.log(intro?.sprites[1])
+
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+        <button
+          className='pause'
+          onClick={() => {
+            setswing(true)
+            const ch = lottie.stop("swing")
+            const ch2 = lottie.play("swing")
+          }}
+        >pause</button>
         {/* Title */}
 
-        <Image
+        {/* <Image
           src={intro?.sprites[0]}
           alt="txt"
           id="fadeup"
@@ -62,7 +89,9 @@ export default function Intro() {
           }}
         />
 
-        <div ref={Ref} className="intro_lottie_container"></div>
+      */}
+        <div ref={Ref} className="intro_lottie_container" style={{ opacity: !swing ? 1 : 0 }}></div>
+        <div ref={Ref2} className="intro_lottie_container_2" style={{ opacity: !swing ? 0 : 1 }}></div>
       </>
     }
   />;
