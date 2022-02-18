@@ -212,7 +212,7 @@
     z-index: 0;
     width: 20%;
     height: 100%;
-    left: 25.5%;
+    left: 26.3%;
     animation: topdown 1s linear forwards
 }
 
@@ -260,6 +260,23 @@
   
 }
 
+.frog_fifth_jump{
+  position: absolute;
+  bottom: -6%;
+  z-index: 0;
+  width: 20%;
+  height: 100%;
+  left:50%;
+  animation: sixthJump 1s linear forwards;
+}
+
+@keyframes sixthJump {
+  to{
+    left:49%;
+    bottom:-8%
+  }
+  
+}
 
 
 @keyframes play_btn {

@@ -19,7 +19,21 @@ export default function Frog() {
 
   const Ref2 = useRef(null);
 
+  const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
+  const gen_nums = () => {
+    const one = randomInt(0, 9)
+    let two = randomInt(0, 9)
+
+    while (two === one) {
+      two = randomInt(0, 9)
+    }
+
+    console.log(one, two)
+  }
+
+
+  gen_nums()
   // loading animation
   useEffect(() => {
     if (frog && Ref2.current && !Loading) {
@@ -48,7 +62,7 @@ export default function Frog() {
     }
   }, [Assets, Loading])
 
-  console.log(count)
+
 
   const get_pos = () => {
     switch (count) {
@@ -70,6 +84,10 @@ export default function Frog() {
 
       case 4:
         return "frog_fourth_jump"
+        break;
+
+      case 5:
+        return "frog_fifth_jump"
         break;
 
       default:
