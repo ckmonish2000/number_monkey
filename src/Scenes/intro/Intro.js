@@ -65,15 +65,15 @@ export default function Intro() {
         break
 
       case 3:
-        return "branch3_swing"
+        return "branch2_swing"
         break
 
       case 4:
-        return "branch4_swing"
+        return "branch3_swing"
         break
 
       case 5:
-        return "branch5_swing"
+        return "branch4_swing"
         break
 
 

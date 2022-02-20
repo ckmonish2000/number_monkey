@@ -19,7 +19,7 @@ const IntroMap = {
   lottie: [
     // `${lottieUrl}Scene_01.json`,
     `${lottieUrl}Monkey_Hanging.json`,
-    `${lottieUrl}Monkey_Swing.json`
+    `${lottieUrl}Monkey_02.json`
   ]
 }
 
