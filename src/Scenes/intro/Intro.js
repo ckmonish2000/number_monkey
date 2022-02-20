@@ -19,8 +19,32 @@ export default function Intro() {
   const Ref = useRef(null);
   const Ref2 = useRef(null);
 
+  const [num1, setnum1] = useState(null)
+  const [num2, setnum2] = useState(null)
+
+  const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
+
+  const gen_nums = () => {
+    const one = randomInt(0, 9)
+    let two = randomInt(0, 9)
+
+    while (two === one) {
+      two = randomInt(0, 9)
+    }
+
+
+    setnum1(one)
+    setnum2(two)
+  }
+
+
   // loading animation
   useEffect(() => {
+
+    if (num1 == null && num2 === null) {
+      gen_nums()
+    }
+
     if (intro && Ref.current && !Loading) {
       try {
         const ch = lottie.loadAnimation({
@@ -112,19 +136,44 @@ export default function Intro() {
   }
 
 
+  const Next = () => {
+    setswing(true)
+    lottie.stop("swing")
+    lottie.play("swing")
+    setcount(count + 1)
+    gen_nums()
+  }
+
   return <Scenes
     Bg={Bg}
     sprites={
       <>
-        <button
-          className='pause'
+
+
+        <span className='num_pos_1'
           onClick={() => {
-            setswing(true)
-            lottie.stop("swing")
-            lottie.play("swing")
-            setcount(count + 1)
+            if (num1 > num2) {
+              Next()
+            }
           }}
-        >pause</button>
+        >{num1}</span>
+
+
+        <span
+          onClick={() => {
+            if (num1 < num2) {
+              Next()
+            }
+          }}
+          className='num_pos_2'>{num2}</span>
+
+        <Image
+          src={intro?.sprites[1]}
+          className='_1st_pebel' />
+
+        <Image
+          src={intro?.sprites[1]}
+          className="_2nd_pebel" />
         {/* Title */}
 
         <Image
@@ -146,7 +195,7 @@ export default function Intro() {
         />
 
         <Image
-          // style={{ display: count === 4 ? "none" : "" }}
+          style={{ display: count === 4 ? "none" : "" }}
           className="swing_4"
           src={intro?.sprites[0]}
         />

@@ -19,6 +19,9 @@ export default function Frog() {
 
   const Ref2 = useRef(null);
 
+  const [num1, setnum1] = useState(null)
+  const [num2, setnum2] = useState(null)
+
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
@@ -29,13 +32,17 @@ export default function Frog() {
       two = randomInt(0, 9)
     }
 
-    console.log(one, two)
+
+    setnum1(one)
+    setnum2(two)
   }
 
-
-  gen_nums()
   // loading animation
   useEffect(() => {
+    if (num1 == null && num2 === null) {
+      gen_nums()
+    }
+
     if (frog && Ref2.current && !Loading) {
       try {
 
@@ -95,21 +102,46 @@ export default function Frog() {
     }
   }
 
+  const Next = () => {
+    setswing(true)
+    lottie.stop("swing")
+    lottie.play("swing")
+    setcount(count + 1)
+    gen_nums()
+  }
+
 
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
-        <button
-          className='pause'
+
+        <span className='num_pos_1'
           onClick={() => {
-            setswing(true)
-            lottie.stop("swing")
-            lottie.play("swing")
-            setcount(count + 1)
+            if (num1 > num2) {
+              Next()
+            }
           }}
-        >pause</button>
+        >{num1}</span>
+
+
+        <span
+          onClick={() => {
+            if (num1 < num2) {
+              Next()
+            }
+          }}
+          className='num_pos_2'>{num2}</span>
+
+        <Image
+          src={frog?.sprites[0]}
+          className='_1st_pebel' />
+
+        <Image
+          src={frog?.sprites[0]}
+          className="_2nd_pebel" />
+
         {/* Title */}
 
 

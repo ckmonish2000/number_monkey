@@ -185,8 +185,37 @@
   left: 45%;
 }
 
+._1st_pebel{
+  position: absolute;
+  bottom: 10px;
+  left: 35%;
+  width: 12%;
+}
 
+._2nd_pebel{
+  position: absolute;
+  bottom: 10px;
+  left: 54%;
+  width: 12%;
+}
 
+.num_pos_1{
+  position: absolute;
+  left: 39.5%;
+  bottom: 53px;
+  font-size: 7vw;
+  z-index: 9;
+  font-weight: bold;
+}
+
+.num_pos_2{
+  position: absolute;
+    left: 58.5%;
+    bottom: 53px;
+    font-size: 7vw;
+    z-index: 9;
+    font-weight: bold;
+}
 
 .frog_start{
   position: absolute;
