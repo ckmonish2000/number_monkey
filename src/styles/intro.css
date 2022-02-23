@@ -211,20 +211,22 @@
 
 .num_pos_1{
   position: absolute;
-  left: 39.5%;
-  bottom: 53px;
-  font-size: 7vw;
+  left: 39%;
+  bottom: 36px;
+  font-size: 900%;
   z-index: 9;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .num_pos_2{
   position: absolute;
-    left: 58.5%;
-    bottom: 53px;
-    font-size: 7vw;
-    z-index: 9;
-    font-weight: bold;
+  left: 58%;
+  bottom: 36px;
+  font-size: 900%;
+  z-index: 9;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .frog_start{
