@@ -5,6 +5,7 @@ import Router from "./utils/Router"
 import "./styles/app.css"
 import Frog from "./Scenes/intro/frog";
 import Select from "./Scenes/select/Select";
+import Home from "./Scenes/Home";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -22,6 +23,10 @@ function App() {
 
   return (
     <GameContainer>
+      <Router sceneId="/home">
+        <Home />
+      </Router>
+
       <Router sceneId="/select">
         <Select />
       </Router>
