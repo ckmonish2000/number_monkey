@@ -132,7 +132,17 @@
     z-index: 9;
 }
 
+.Big_frog{
+  position: absolute;
+    left: 66%;
+    bottom: 30%;
+}
 
+.water_ripple_pos{
+  position: absolute;
+  left: 24%;
+  bottom: 26%;
+}
 
 .swing_1{
   position: absolute;

@@ -21,6 +21,8 @@ const FrogMap = {
     // `${lottieUrl}Scene_01.json`,
     `${lottieUrl}frog/SB42_Frog_Idle.json`,
     `${lottieUrl}frog/SB42_Frog_Jump_01.json`,
+    `${lottieUrl}frog/water_ripple.json`,
+    `${lottieUrl}frog/SB42_Big_Frog_idle.json`
   ]
 }
 

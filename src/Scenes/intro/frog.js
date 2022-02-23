@@ -18,6 +18,8 @@ export default function Frog() {
   const [swing, setswing] = useState(false)
 
   const Ref2 = useRef(null);
+  const waterRef = useRef(null);
+  const BigFrogRef = useRef(null);
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
@@ -54,6 +56,24 @@ export default function Frog() {
           loop: false,
           autoplay: true,
           animationData: frog?.lottie[1],
+        })
+
+        const water = lottie.loadAnimation({
+          name: "swing",
+          container: waterRef.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: frog?.lottie[2],
+        })
+
+        const Bigfrog = lottie.loadAnimation({
+          name: "swing",
+          container: BigFrogRef.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: frog?.lottie[3],
         })
 
         // ch2.addEventListener('enterFrame', () => {
@@ -146,6 +166,8 @@ export default function Frog() {
 
 
         {/* <div ref={Ref} className='frog_start_jump'></div> */}
+        <div className='Big_frog' ref={BigFrogRef}></div>
+        <div className='water_ripple_pos' ref={waterRef}></div>
         <div ref={Ref2} className={get_pos()}></div>
       </>
     }

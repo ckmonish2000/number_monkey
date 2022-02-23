@@ -79,6 +79,11 @@ export default function Intro() {
   }, [Assets, Loading])
 
 
+  useEffect(() => {
+    if (count === 5) {
+      setSceneId("/frog")
+    }
+  }, [count])
   const get_swing_class = () => {
     switch (count) {
       case 1:
