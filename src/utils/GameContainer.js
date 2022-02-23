@@ -27,7 +27,8 @@ export default function GameContainer({ children }) {
       transformOrigin: "210px 900px",
       left: "-210px",
       bottom: "0px",
-      transform: `scale(${scale})`
+      transform: `scale(${scale})`,
+      overflow: "hidden"
     }}>
       {children}
     </div>

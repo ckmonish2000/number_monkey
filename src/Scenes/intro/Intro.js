@@ -19,6 +19,9 @@ export default function Intro() {
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
   const Ref2 = useRef(null);
+  const countRef = useRef(null);
+  countRef.current = count
+
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
@@ -69,6 +72,9 @@ export default function Intro() {
         ch2.addEventListener('enterFrame', () => {
           if (Math.floor(ch2.currentFrame) === 33) {
             setswing(false)
+            if (countRef.current === 5) {
+              setTimeout(() => { setSceneId("/frog") }, 2000)
+            }
             console.log("completed honey");
           }
 
@@ -80,11 +86,6 @@ export default function Intro() {
   }, [Assets, Loading])
 
 
-  useEffect(() => {
-    if (count === 5) {
-      setSceneId("/frog")
-    }
-  }, [count])
   const get_swing_class = () => {
     switch (count) {
       case 1:
