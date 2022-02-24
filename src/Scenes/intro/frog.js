@@ -97,7 +97,9 @@ export default function Frog() {
   useEffect(() => {
     if (count === 5) {
       stop_all_sounds()
-      Assets?.frog?.sounds[2]?.play()
+      setTimeout(() => {
+        setSceneId("/fend")
+      }, 1500)
     }
   }, [count])
 
