@@ -94,6 +94,13 @@ export default function Frog() {
   }, [Assets, Loading])
 
 
+  useEffect(() => {
+    if (count === 5) {
+      stop_all_sounds()
+      Assets?.frog?.sounds[2]?.play()
+    }
+  }, [count])
+
 
   const get_pos = () => {
     switch (count) {
@@ -126,14 +133,19 @@ export default function Frog() {
     }
   }
 
+
   const Next = () => {
+
     stop_all_sounds()
+
     setswing(true)
     lottie.stop("swing")
     lottie.play("swing")
     setcount(count + 1)
     gen_nums()
-    Assets?.frog?.sounds[1]?.play()
+    if (count !== 4) {
+      Assets?.frog?.sounds[1]?.play()
+    }
   }
 
   const stop_all_sounds = () => {
@@ -145,32 +157,33 @@ export default function Frog() {
     Bg={Bg}
     sprites={
       <>
+        {count !== 5 && <>
+          <span className='num_pos_1'
+            onClick={() => {
+              if (num1 > num2) {
+                Next()
+              }
+            }}
+          >{num1}</span>
 
-        <span className='num_pos_1'
-          onClick={() => {
-            if (num1 > num2) {
-              Next()
-            }
-          }}
-        >{num1}</span>
 
+          <span
+            onClick={() => {
+              if (num1 < num2) {
+                Next()
+              }
+            }}
+            className='num_pos_2'>{num2}</span>
 
-        <span
-          onClick={() => {
-            if (num1 < num2) {
-              Next()
-            }
-          }}
-          className='num_pos_2'>{num2}</span>
+          <Image
+            src={frog?.sprites[0]}
+            className='_1st_pebel' />
 
-        <Image
-          src={frog?.sprites[0]}
-          className='_1st_pebel' />
+          <Image
+            src={frog?.sprites[0]}
+            className="_2nd_pebel" />
 
-        <Image
-          src={frog?.sprites[0]}
-          className="_2nd_pebel" />
-
+        </>}
         {/* Title */}
 
 

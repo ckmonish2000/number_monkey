@@ -16,7 +16,8 @@ const FrogMap = {
   sounds: [
     // `${soundUrl}Intro.mp3`
     `${soundUrl}frog_1.mp3`,
-    `${soundUrl}tap.mp3`
+    `${soundUrl}tap.mp3`,
+    `${soundUrl}frog_2.mp3`
   ],
 
   lottie: [
