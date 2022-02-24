@@ -16,6 +16,8 @@ export default function Intro() {
   const { intro } = Assets
 
   const [count, setcount] = useState(1)
+  const [countp1, setcountp1] = useState(0)
+
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
   const Ref2 = useRef(null);
@@ -73,6 +75,7 @@ export default function Intro() {
           // if (Math.floor(ch2.currentFrame) === 33) {
           setswing(false)
           setcount(countRef.current + 1)
+          setcountp1(0)
           if (countRef.current === 5) {
             setTimeout(() => { setSceneId("/frog") }, 2000)
           }
@@ -88,25 +91,25 @@ export default function Intro() {
 
 
   const get_swing_class = () => {
-    switch (count) {
+    switch (countRef.current) {
       case 1:
         return "branch1_swing"
         break;
       case 2:
-        return "branch1_swing"
-        break
-
-      case 3:
         return "branch2_swing"
         break
 
-      case 4:
+      case 3:
         return "branch3_swing"
         break
 
-      case 5:
+      case 4:
         return "branch4_swing"
         break
+
+      // case 5:
+      //   return "branch4_swing"
+      //   break
 
 
       default:
@@ -146,11 +149,13 @@ export default function Intro() {
 
   const Next = () => {
     setswing(true)
+    setcountp1(count + 1)
     lottie.stop("swing")
     lottie.play("swing")
     // setcount(count + 1)
     gen_nums()
   }
+
 
   return <Scenes
     Bg={Bg}
@@ -160,7 +165,7 @@ export default function Intro() {
 
         <span className='num_pos_1'
           onClick={() => {
-            if (num1 > num2) {
+            if (num1 > num2 && !swing) {
               Next()
             }
           }}
@@ -169,7 +174,7 @@ export default function Intro() {
 
         <span
           onClick={() => {
-            if (num1 < num2) {
+            if (num1 < num2 && !swing) {
               Next()
             }
           }}
@@ -191,25 +196,25 @@ export default function Intro() {
         />
 
         <Image
-          style={{ display: count === 2 ? "none" : "" }}
+          style={{ display: count === 2 || countp1 === 2 ? "none" : "" }}
           className="swing_2"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 3 ? "none" : "" }}
+          style={{ display: count === 3 || countp1 === 3 ? "none" : "" }}
           className="swing_3"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 4 ? "none" : "" }}
+          style={{ display: count === 4 || countp1 === 4 ? "none" : "" }}
           className="swing_4"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 5 ? "none" : "" }}
+          style={{ display: count === 5 || countp1 === 5 ? "none" : "" }}
           className="swing_5"
           src={intro?.sprites[0]}
         />

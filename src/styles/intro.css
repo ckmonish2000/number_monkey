@@ -37,6 +37,7 @@
   height: 100%;
   top: -1%;
   left: 8.5%;
+ 
 }
 
 .branch2_idle{
@@ -47,6 +48,7 @@
   height: 100%;
   top:-1%;
   left: 10.5%;
+
 }
 
 .branch3_idle{
@@ -87,6 +89,10 @@
   height: 100%;
   top: -1%;
   left: 21%;
+  position: absolute;
+  left: 19.5%;
+  width: 39%;
+  top: -1%;
 }
 
 .branch3_swing{
@@ -97,6 +103,10 @@
   height: 100%;
   top: -1%;
   left: 31.5%;
+  position: absolute;
+    width: 39%;
+    left: 30.5%;
+    top: -1%;
 }
 
 .branch4_swing{
@@ -107,6 +117,10 @@
   height: 100%;
   top: -1%;
   left: 42%;
+  position: absolute;
+  width: 39%;
+  left: 41.5%;
+  top: -1%;
 }
 
 .branch5_swing{
