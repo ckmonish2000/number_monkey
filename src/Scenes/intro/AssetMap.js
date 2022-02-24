@@ -15,7 +15,8 @@ const IntroMap = {
 
   sounds: [
     // `${soundUrl}Intro.mp3`
-    `${soundUrl}monkey_1.mp3`
+    `${soundUrl}monkey_1.mp3`,
+    `${soundUrl}monkey_2.mp3`
   ],
 
   lottie: [
