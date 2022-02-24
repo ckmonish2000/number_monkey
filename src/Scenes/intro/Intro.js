@@ -43,6 +43,9 @@ export default function Intro() {
     setnum2(two)
   }
 
+  const stop_all_sounds = () => {
+    Assets?.intro?.sounds?.map(v => v.stop())
+  }
 
   // loading animation
   useEffect(() => {
@@ -86,6 +89,10 @@ export default function Intro() {
       } catch (err) {
         console.log(err)
       }
+    }
+
+    if (!Loading) {
+      Assets?.intro?.sounds[0]?.play()
     }
   }, [Assets, Loading])
 
@@ -148,6 +155,7 @@ export default function Intro() {
 
 
   const Next = () => {
+    stop_all_sounds()
     setswing(true)
     setcountp1(count + 1)
     lottie.stop("swing")
