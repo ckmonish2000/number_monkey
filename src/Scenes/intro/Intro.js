@@ -82,7 +82,7 @@ export default function Intro() {
           if (countRef.current === 5) {
             const audio = Assets?.intro?.sounds[1]
             audio?.play()
-            // setTimeout(() => { setSceneId("/frog") }, 2000)
+            setTimeout(() => { setSceneId("/mend") }, 1500)
           }
           console.log("completed honey");
           // }
