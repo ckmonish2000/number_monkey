@@ -69,14 +69,15 @@ export default function Intro() {
           animationData: intro?.lottie[1],
         })
 
-        ch2.addEventListener('enterFrame', () => {
-          if (Math.floor(ch2.currentFrame) === 33) {
-            setswing(false)
-            if (countRef.current === 5) {
-              setTimeout(() => { setSceneId("/frog") }, 2000)
-            }
-            console.log("completed honey");
+        ch2.addEventListener('complete', () => {
+          // if (Math.floor(ch2.currentFrame) === 33) {
+          setswing(false)
+          setcount(countRef.current + 1)
+          if (countRef.current === 5) {
+            setTimeout(() => { setSceneId("/frog") }, 2000)
           }
+          console.log("completed honey");
+          // }
 
         })
       } catch (err) {
@@ -147,7 +148,7 @@ export default function Intro() {
     setswing(true)
     lottie.stop("swing")
     lottie.play("swing")
-    setcount(count + 1)
+    // setcount(count + 1)
     gen_nums()
   }
 
