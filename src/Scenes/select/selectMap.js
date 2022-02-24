@@ -13,7 +13,7 @@ const SelectMap = {
 
 
   sounds: [
-    // `${soundUrl}Intro.mp3`
+    `${soundUrl}select_audio.mp3`
   ],
 
   lottie: [

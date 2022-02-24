@@ -14,11 +14,11 @@ export async function AudioPlayer(url) {
     type: "music/mp3",
   })
 
-  // let how = URL.createObjectURL(blob)
-  // how = new Howl({
-  //   src: [how],
-  //   format: ["mp3"]
-  // })
+  let how = URL.createObjectURL(blob)
+  how = new Howl({
+    src: [how],
+    format: ["mp3"]
+  })
 
-  return blob
+  return how
 }
