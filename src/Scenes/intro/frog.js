@@ -87,6 +87,10 @@ export default function Frog() {
         console.log(err)
       }
     }
+
+    if (Assets && !Loading) {
+      Assets?.frog?.sounds[0]?.play()
+    }
   }, [Assets, Loading])
 
 
@@ -123,13 +127,18 @@ export default function Frog() {
   }
 
   const Next = () => {
+    stop_all_sounds()
     setswing(true)
     lottie.stop("swing")
     lottie.play("swing")
     setcount(count + 1)
     gen_nums()
+    Assets?.frog?.sounds[1]?.play()
   }
 
+  const stop_all_sounds = () => {
+    Assets?.frog?.sounds?.map(v => v.stop())
+  }
 
 
   return <Scenes
