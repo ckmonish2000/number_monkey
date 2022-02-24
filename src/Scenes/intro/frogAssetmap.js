@@ -6,10 +6,10 @@ const FrogMap = {
   Bg: `${imgUrl}SB_42_BG_01.svg`,
 
   sprites: [
-    // `${imgUrl}Intro-Text.svg`,
-    // `${imgUrl}play.svg`,
-    // `${imgUrl}FG_monkey.svg`
-    `${imgUrl}pink_box.svg`
+    `${imgUrl}pink_box.svg`,
+    `${imgUrl}frog/board.svg`,
+    `${imgUrl}frog/grey_flower.svg`,
+    `${imgUrl}frog/flower.svg`
   ],
 
 

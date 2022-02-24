@@ -391,3 +391,39 @@
   left: 49%;
   bottom: 10%;
 }
+
+
+.flower_star_1{
+  position: absolute;
+    width: 16%;
+    left: 6%;
+    top: 2.5%;
+}
+
+.flower_star_2{
+  position: absolute;
+    width: 16%;
+    left: 25%;
+    top: 2.5%;
+}
+
+.flower_star_3{
+  position: absolute;
+    width: 16%;
+    left: 43.4%;
+    top: 2.5%;
+}
+
+.flower_star_4{
+  position: absolute;
+    width: 16%;
+    left: 61.4%;
+    top: 2.5%;
+}
+
+.flower_star_5{
+  position: absolute;
+    width: 16%;
+    left: 79.4%;
+    top: 2.5%;
+}

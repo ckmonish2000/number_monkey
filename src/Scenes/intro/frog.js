@@ -7,6 +7,7 @@ import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import FrogMap from './frogAssetmap';
+import Stars from './Stars';
 
 
 export default function Frog() {
@@ -14,7 +15,7 @@ export default function Frog() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { frog } = Assets
 
-  const [count, setcount] = useState(1)
+  const [count, setcount] = useState(0)
   const [swing, setswing] = useState(false)
 
   const Ref2 = useRef(null);
@@ -54,7 +55,7 @@ export default function Frog() {
           container: Ref2.current,
           renderer: "svg",
           loop: false,
-          autoplay: true,
+          autoplay: false,
           animationData: frog?.lottie[1],
         })
 
@@ -159,6 +160,28 @@ export default function Frog() {
     Bg={Bg}
     sprites={
       <>
+        <Stars
+
+          count={count}
+          board={Assets?.frog?.sprites[1]}
+          grey={Assets?.frog?.sprites[2]}
+          color={Assets?.frog?.sprites[3]}
+          styles={[{
+            position: "absolute",
+            left: "74%",
+            top: "20%",
+            width: "15%",
+            height: "50%"
+
+          },
+          { position: 'absolute', width: '100%', left: "0%" },
+            "flower_star_1",
+            "flower_star_2",
+            "flower_star_3",
+            "flower_star_4",
+            "flower_star_5",
+          ]} />
+
         {count !== 5 && <>
           <span className='num_pos_1'
             onClick={() => {
