@@ -6,6 +6,7 @@ import "./styles/app.css"
 import Frog from "./Scenes/intro/frog";
 import Select from "./Scenes/select/Select";
 import Home from "./Scenes/Home";
+import FrogEnd from "./Scenes/EndScenes/FrogEnd";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -29,6 +30,10 @@ function App() {
 
       <Router sceneId="/select">
         <Select />
+      </Router>
+
+      <Router sceneId="/fend">
+        <FrogEnd />
       </Router>
 
       <Router sceneId="/">
