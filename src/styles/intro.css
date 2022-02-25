@@ -427,3 +427,54 @@
     left: 79.4%;
     top: 2.5%;
 }
+
+.b_star_1{
+  position: absolute;
+    width: 9%;
+    left: 11%;
+    top: 2.5%;
+}
+
+
+.b_star_2{
+  position: absolute;
+    width: 9%;
+    left: 29%;
+    top: 2.5%;
+}
+
+.b_star_3{
+  position: absolute;
+    width: 9%;
+    left: 46%;
+    top: 2.5%;
+}
+
+.b_star_4{
+  position: absolute;
+    width: 9%;
+    left: 64.5%;
+    top: 2.5%;
+}
+
+.b_star_5{
+  position: absolute;
+    width: 9%;
+    left: 80.5%;
+    top: 2.5%;
+}
+
+.replayBtn{
+  position: absolute;
+  width: 10%;
+  left: 80%;
+  bottom: 2%;
+}
+
+.mute_btn{
+  position: absolute;
+  left: 12%;
+  bottom: 36%;
+  width: 3%;
+  z-index: 999;
+}

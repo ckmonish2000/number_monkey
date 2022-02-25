@@ -10,7 +10,8 @@ const MonkeyEndMap = {
     // `${imgUrl}play.svg`,
     `${imgUrl}FG_monkey.svg`,
     `${imgUrl}monkey_3.svg`,
-    `${imgUrl}banana.svg`
+    `${imgUrl}banana.svg`,
+    `${imgUrl}replay.svg`
   ],
 
 

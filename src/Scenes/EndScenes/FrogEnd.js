@@ -107,6 +107,15 @@ export default function FrogEnd() {
             width: "10%"
           }}
           ref={Ref2} className={""}></div>
+
+        <Image
+          onClick={() => {
+            const bg = document.querySelector(".Bg_Image")
+            Assets?.frog?.sounds?.map(v => v.stop())
+            bg.style.transform = ""
+            setSceneId("/home")
+          }}
+          src={Assets?.frog?.sprites[0]} className="replayBtn" />
       </>
     }
   />;

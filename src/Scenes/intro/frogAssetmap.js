@@ -9,7 +9,9 @@ const FrogMap = {
     `${imgUrl}pink_box.svg`,
     `${imgUrl}frog/board.svg`,
     `${imgUrl}frog/grey_flower.svg`,
-    `${imgUrl}frog/flower.svg`
+    `${imgUrl}frog/flower.svg`,
+    `${imgUrl}red_border.svg`,
+    `${imgUrl}green_border.svg`
   ],
 
 
@@ -17,7 +19,9 @@ const FrogMap = {
     // `${soundUrl}Intro.mp3`
     `${soundUrl}frog_1.mp3`,
     `${soundUrl}tap.mp3`,
-    `${soundUrl}frog_2.mp3`
+    `${soundUrl}frog_2.mp3`,
+    `${soundUrl}jump.mp3`,
+    `${soundUrl}wrong.mp3`,
   ],
 
   lottie: [

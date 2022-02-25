@@ -84,7 +84,14 @@ export default function MonkeyEnd() {
           src={intro?.sprites[2]}
         />
 
-
+        <Image
+          onClick={() => {
+            const bg = document.querySelector(".Bg_Image")
+            Assets?.intro?.sounds?.map(v => v.stop())
+            bg.style.transform = ""
+            setSceneId("/home")
+          }}
+          src={Assets?.intro?.sprites[3]} className="replayBtn" />
       </>
     }
   />;

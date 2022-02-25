@@ -24,6 +24,8 @@ export default function Frog() {
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
+  const [Wrong, setWrong] = useState(0)
+  const [Correct, setCorrect] = useState(0)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
@@ -105,6 +107,14 @@ export default function Frog() {
   }, [count])
 
 
+  useEffect(() => {
+    setTimeout(() => {
+      setWrong(0)
+    }, 2000)
+  }, [Wrong])
+
+
+
   const get_pos = () => {
     switch (count) {
       case 0:
@@ -141,13 +151,18 @@ export default function Frog() {
 
     stop_all_sounds()
 
+    const sound = Assets?.frog?.sounds[3]
+    sound?.play()
+
     setswing(true)
     lottie.stop("swing")
     lottie.play("swing")
     setcount(count + 1)
     gen_nums()
     if (count !== 4) {
-      Assets?.frog?.sounds[1]?.play()
+      sound.on('end', () => {
+        Assets?.frog?.sounds[1]?.play()
+      })
     }
   }
 
@@ -187,6 +202,10 @@ export default function Frog() {
             onClick={() => {
               if (num1 > num2) {
                 Next()
+              } else {
+                stop_all_sounds()
+                setWrong(1)
+                Assets?.frog?.sounds[4]?.play()
               }
             }}
           >{num1}</span>
@@ -196,9 +215,31 @@ export default function Frog() {
             onClick={() => {
               if (num1 < num2) {
                 Next()
+              } else {
+                stop_all_sounds()
+                setWrong(2)
+                Assets?.frog?.sounds[4]?.play()
               }
             }}
             className='num_pos_2'>{num2}</span>
+
+          {/* border 1 */}
+          {Wrong === 1 && <Image
+            src={frog?.sprites[4]}
+            className='_1st_pebel' />}
+
+
+          {/* border 2 */}
+          {Wrong === 2 && <Image
+            src={frog?.sprites[4]}
+            className='_2nd_pebel' />}
+
+
+
+
+
+
+
 
           <Image
             src={frog?.sprites[0]}

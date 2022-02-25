@@ -9,7 +9,7 @@ const FrogEndMap = {
     // `${imgUrl}Intro-Text.svg`,
     // `${imgUrl}play.svg`,
     // `${imgUrl}FG_monkey.svg`
-    `${imgUrl}pink_box.svg`
+    `${imgUrl}replay.svg`
   ],
 
 

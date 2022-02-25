@@ -8,6 +8,7 @@ import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/monkey.css"
+import { Stars2 } from './Stars';
 
 
 export default function Intro() {
@@ -16,6 +17,7 @@ export default function Intro() {
   const { intro } = Assets
 
   const [count, setcount] = useState(1)
+  const [starCount, setstarCount] = useState(1)
   const [countp1, setcountp1] = useState(0)
 
   const [swing, setswing] = useState(false)
@@ -79,11 +81,6 @@ export default function Intro() {
           setswing(false)
           setcount(countRef.current + 1)
           setcountp1(0)
-          if (countRef.current === 5) {
-            const audio = Assets?.intro?.sounds[1]
-            audio?.play()
-            setTimeout(() => { setSceneId("/mend") }, 1500)
-          }
           console.log("completed honey");
           // }
 
@@ -97,6 +94,13 @@ export default function Intro() {
       Assets?.intro?.sounds[0]?.play()
     }
   }, [Assets, Loading])
+
+  useEffect(() => {
+    if (starCount === 6) {
+
+      setSceneId("/mend")
+    }
+  }, [starCount])
 
 
   const get_swing_class = () => {
@@ -162,7 +166,7 @@ export default function Intro() {
     setcountp1(count + 1)
     lottie.stop("swing")
     lottie.play("swing")
-    // setcount(count + 1)
+    setstarCount(starCount + 1)
     gen_nums()
   }
 
@@ -171,6 +175,28 @@ export default function Intro() {
     Bg={Bg}
     sprites={
       <>
+
+        <Stars2
+          count={starCount}
+          board={Assets?.intro?.sprites[2]}
+          grey={Assets?.intro?.sprites[3]}
+          color={Assets?.intro?.sprites[4]}
+          styles={[{
+            position: "absolute",
+            left: "74%",
+            top: "20%",
+            width: "15%",
+            height: "50%"
+
+          },
+          { position: 'absolute', width: '100%', left: "0%" },
+            "b_star_1",
+            "b_star_2",
+            "b_star_3",
+            "b_star_4",
+            "b_star_5",
+          ]}
+        />
 
 
         <span className='num_pos_1'

@@ -9,7 +9,10 @@ const IntroMap = {
     // `${imgUrl}Intro-Text.svg`,
     // `${imgUrl}play.svg`,
     `${imgUrl}FG_monkey.svg`,
-    `${imgUrl}pink_box.svg`
+    `${imgUrl}pink_box.svg`,
+    `${imgUrl}monkey/bar.svg`,
+    `${imgUrl}monkey/grey.svg`,
+    `${imgUrl}monkey/banana.svg`,
   ],
 
 
