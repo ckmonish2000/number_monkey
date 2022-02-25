@@ -114,6 +114,14 @@ export default function Frog() {
   }, [Wrong])
 
 
+  useEffect(() => {
+    setTimeout(() => {
+      setCorrect(0)
+    }, 1000)
+  }, [Correct])
+
+
+
 
   const get_pos = () => {
     switch (count) {
@@ -170,7 +178,7 @@ export default function Frog() {
     Assets?.frog?.sounds?.map(v => v.stop())
   }
 
-
+  console.log(Correct);
   return <Scenes
     Bg={Bg}
     sprites={
@@ -201,7 +209,8 @@ export default function Frog() {
           <span className='num_pos_1'
             onClick={() => {
               if (num1 > num2) {
-                Next()
+                setCorrect(1)
+                setTimeout(() => { Next() }, 1000)
               } else {
                 stop_all_sounds()
                 setWrong(1)
@@ -214,7 +223,9 @@ export default function Frog() {
           <span
             onClick={() => {
               if (num1 < num2) {
-                Next()
+                setCorrect(2)
+                setTimeout(() => { Next() }, 1000)
+
               } else {
                 stop_all_sounds()
                 setWrong(2)
@@ -228,12 +239,19 @@ export default function Frog() {
             src={frog?.sprites[4]}
             className='_1st_pebel' />}
 
+          {Correct === 1 && <Image
+            src={frog?.sprites[5]}
+            className='_1st_pebel' />}
+
 
           {/* border 2 */}
           {Wrong === 2 && <Image
             src={frog?.sprites[4]}
             className='_2nd_pebel' />}
 
+          {Correct === 2 && <Image
+            src={frog?.sprites[5]}
+            className='_2nd_pebel' />}
 
 
 
