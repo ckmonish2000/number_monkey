@@ -19,6 +19,8 @@ export default function Intro() {
   const [count, setcount] = useState(1)
   const [starCount, setstarCount] = useState(1)
   const [countp1, setcountp1] = useState(0)
+  const [Wrong, setWrong] = useState(0)
+  const [Correct, setCorrect] = useState(0)
 
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
@@ -48,6 +50,19 @@ export default function Intro() {
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWrong(0)
+    }, 2000)
+  }, [Wrong])
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCorrect(0)
+    }, 1000)
+  }, [Correct])
 
   // loading animation
   useEffect(() => {
@@ -159,9 +174,9 @@ export default function Intro() {
     }
   }
 
-
   const Next = () => {
     stop_all_sounds()
+    Assets?.intro?.sounds[1]?.play()
     setswing(true)
     setcountp1(count + 1)
     lottie.stop("swing")
@@ -175,6 +190,26 @@ export default function Intro() {
     Bg={Bg}
     sprites={
       <>
+
+        {/* border 1 */}
+        {Wrong === 1 && <Image
+          src={intro?.sprites[5]}
+          className='_1st_pebel' />}
+
+        {Correct === 1 && <Image
+          src={intro?.sprites[6]}
+          className='_1st_pebel' />}
+
+
+        {/* border 2 */}
+        {Wrong === 2 && <Image
+          src={intro?.sprites[5]}
+          className='_2nd_pebel' />}
+
+        {Correct === 2 && <Image
+          src={intro?.sprites[6]}
+          className='_2nd_pebel' />}
+
 
         <Stars2
           count={starCount}
@@ -202,7 +237,12 @@ export default function Intro() {
         <span className='num_pos_1'
           onClick={() => {
             if (num1 > num2 && !swing) {
-              Next()
+              setCorrect(1)
+              setTimeout(() => { Next() }, 500)
+            } else {
+              stop_all_sounds()
+              setWrong(1)
+              Assets?.intro?.sounds[2]?.play()
             }
           }}
         >{num1}</span>
@@ -211,7 +251,12 @@ export default function Intro() {
         <span
           onClick={() => {
             if (num1 < num2 && !swing) {
-              Next()
+              setCorrect(2)
+              setTimeout(() => { Next() }, 500)
+            } else {
+              stop_all_sounds()
+              setWrong(2)
+              Assets?.intro?.sounds[2]?.play()
             }
           }}
           className='num_pos_2'>{num2}</span>

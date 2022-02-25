@@ -13,13 +13,17 @@ const IntroMap = {
     `${imgUrl}monkey/bar.svg`,
     `${imgUrl}monkey/grey.svg`,
     `${imgUrl}monkey/banana.svg`,
+    `${imgUrl}red_border.svg`,
+    `${imgUrl}green_border.svg`
   ],
 
 
   sounds: [
     // `${soundUrl}Intro.mp3`
     `${soundUrl}monkey_1.mp3`,
-    `${soundUrl}monkey_2.mp3`
+    // `${soundUrl}monkey_2.mp3`,
+    `${soundUrl}monkey_correct.mp3`,
+    `${soundUrl}wrong.mp3`,
   ],
 
   lottie: [
