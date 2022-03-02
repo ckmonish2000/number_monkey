@@ -216,15 +216,8 @@ export default function Intro() {
           board={Assets?.intro?.sprites[2]}
           grey={Assets?.intro?.sprites[3]}
           color={Assets?.intro?.sprites[4]}
-          styles={[{
-            position: "absolute",
-            left: "74%",
-            top: "20%",
-            width: "15%",
-            height: "50%"
-
-          },
-          { position: 'absolute', width: '100%', left: "0%" },
+          styles={["root_star_pos",
+            { position: 'absolute', width: '100%', left: "0%" },
             "b_star_1",
             "b_star_2",
             "b_star_3",

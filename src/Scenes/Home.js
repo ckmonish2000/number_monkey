@@ -24,6 +24,12 @@ export default function Home() {
       <>
 
         <Image
+          src={Assets?.select?.sprites[1]} className="number_fg" />
+
+        <Image
+          src={Assets?.select?.sprites[2]} className="number_fg_title" />
+
+        <Image
           onClick={() => { setSceneId("/select") }}
           src={Assets?.select?.sprites[0]} className="play_butn" />
 

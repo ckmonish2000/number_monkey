@@ -3,7 +3,7 @@ import Image from '../../utils/elements/Image'
 
 export default function Stars({ board, grey, color, styles, count }) {
   return (
-    <div style={styles[0]}>
+    <div className={styles[0]}>
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 
@@ -20,7 +20,7 @@ export default function Stars({ board, grey, color, styles, count }) {
 
 export function Stars2({ board, grey, color, styles, count }) {
   return (
-    <div style={styles[0]}>
+    <div className={styles[0]}>
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 

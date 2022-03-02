@@ -122,7 +122,6 @@ export default function Frog() {
 
 
 
-
   const get_pos = () => {
     switch (count) {
       case 0:
@@ -189,15 +188,17 @@ export default function Frog() {
           board={Assets?.frog?.sprites[1]}
           grey={Assets?.frog?.sprites[2]}
           color={Assets?.frog?.sprites[3]}
-          styles={[{
-            position: "absolute",
-            left: "74%",
-            top: "20%",
-            width: "15%",
-            height: "50%"
+          styles={[
+            // {
+            //   position: "absolute",
+            //   left: "74%",
+            //   top: "20%",
+            //   width: "15%",
+            //   height: "50%"
 
-          },
-          { position: 'absolute', width: '100%', left: "0%" },
+            // },
+            "root_star_pos",
+            { position: 'absolute', width: '100%', left: "0%" },
             "flower_star_1",
             "flower_star_2",
             "flower_star_3",
