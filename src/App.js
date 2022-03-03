@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
@@ -10,6 +10,7 @@ import FrogEnd from "./Scenes/EndScenes/FrogEnd";
 import MonkeyEnd from "./Scenes/EndScenes/MonkeyEnd";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
+import { SceneContext } from "./contexts/SceneContext";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -18,7 +19,9 @@ function App() {
   const [BG_sound, setBG_sound] = useState(null)
   const [icon1, seticon1] = useState("")
   const [icon2, seticon2] = useState("")
+  const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
+  const { SceneId } = useContext(SceneContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,10 +40,11 @@ function App() {
   }
 
   useEffect(() => {
-    if (BG_sound !== null) {
+    if (BG_sound !== null && SceneId !== "/home" && playing === false) {
       BG_sound?.play()
+      setplaying(true)
     }
-  }, [BG_sound])
+  }, [BG_sound, SceneId])
 
   useEffect(() => {
     if (BG_sound) {
@@ -60,8 +64,8 @@ function App() {
 
   return (
     <GameContainer>
-      {!mute && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
-      {mute && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+      {!mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+      {mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
       <Router sceneId="/home">
         <Home />

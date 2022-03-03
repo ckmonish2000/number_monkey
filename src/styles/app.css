@@ -1,3 +1,8 @@
+*{
+  -webkit-user-select:none  !important;
+  -webkit-user-drag: none !important;
+}
+
 .intro_Loading_screen{
   animation: FadeUpnDown 3s alternate infinite;
   width: 100%;

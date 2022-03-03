@@ -92,9 +92,10 @@ export default function FrogEnd() {
         {/* <div ref={Ref} className='frog_start_jump'></div> */}
         <div
           style={{
-            left: "41%",
-            bottom: "19%",
-            width: "24%"
+            left: "49%",
+            bottom: "21%",
+            width: "22%"
+
           }}
           className='Big_frog'
           ref={BigFrogRef}></div>
@@ -102,8 +103,8 @@ export default function FrogEnd() {
         <div
           style={{
             position: "absolute",
-            left: "31%",
-            bottom: "22%",
+            left: "44%",
+            bottom: "26%",
             width: "10%"
           }}
           ref={Ref2} className={""}></div>

@@ -20,6 +20,10 @@
     animation:play_btn 2s alternate infinite !important;
 }
 
+.play_btn:active{
+  transform:scale(0.8)
+}
+
 .number_fg{
   position: absolute;
   width: 60%;
@@ -497,6 +501,11 @@
   width: 10%;
   left: 80%;
   bottom: 2%;
+  cursor: pointer;
+}
+
+.replayBtn:active{
+  transform:scale(0.8)
 }
 
 .mute_btn{
@@ -505,4 +514,9 @@
   bottom: 40%;
   width: 3%;
   z-index: 999;
+  cursor: pointer;
+}
+
+.mute_btn:active{
+  transform:scale(0.8)
 }
