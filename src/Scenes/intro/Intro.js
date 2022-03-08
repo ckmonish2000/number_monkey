@@ -61,7 +61,7 @@ export default function Intro() {
   useEffect(() => {
     setTimeout(() => {
       setCorrect(0)
-    }, 1000)
+    }, 2000)
   }, [Correct])
 
   // loading animation
@@ -182,9 +182,30 @@ export default function Intro() {
     lottie.stop("swing")
     lottie.play("swing")
     setstarCount(starCount + 1)
-    gen_nums()
+    setTimeout(() => { gen_nums() }, 2000)
   }
 
+  const NUM1 = () => {
+    if (num1 > num2 && !swing) {
+      setCorrect(1)
+      setTimeout(() => { Next() }, 1000)
+    } else {
+      stop_all_sounds()
+      setWrong(1)
+      Assets?.intro?.sounds[2]?.play()
+    }
+  }
+
+  const NUM2 = () => {
+    if (num1 < num2 && !swing) {
+      setCorrect(2)
+      setTimeout(() => { Next() }, 1000)
+    } else {
+      stop_all_sounds()
+      setWrong(2)
+      Assets?.intro?.sounds[2]?.play()
+    }
+  }
 
   return <Scenes
     Bg={Bg}
@@ -228,38 +249,24 @@ export default function Intro() {
 
 
         <span className='num_pos_1'
-          onClick={() => {
-            if (num1 > num2 && !swing) {
-              setCorrect(1)
-              setTimeout(() => { Next() }, 500)
-            } else {
-              stop_all_sounds()
-              setWrong(1)
-              Assets?.intro?.sounds[2]?.play()
-            }
-          }}
+          onClick={NUM1}
         >{num1}</span>
 
 
         <span
-          onClick={() => {
-            if (num1 < num2 && !swing) {
-              setCorrect(2)
-              setTimeout(() => { Next() }, 500)
-            } else {
-              stop_all_sounds()
-              setWrong(2)
-              Assets?.intro?.sounds[2]?.play()
-            }
-          }}
+          onClick={NUM2}
           className='num_pos_2'>{num2}</span>
 
         <Image
+          onClick={NUM1}
           src={intro?.sprites[1]}
+          style={{ zIndex: 8 }}
           className='_1st_pebel' />
 
         <Image
+          onClick={NUM2}
           src={intro?.sprites[1]}
+          style={{ zIndex: 8 }}
           className="_2nd_pebel" />
         {/* Title */}
 
