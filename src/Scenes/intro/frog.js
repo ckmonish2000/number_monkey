@@ -26,6 +26,7 @@ export default function Frog() {
   const [num2, setnum2] = useState(null)
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
+  const [playing, setplaying] = useState(true)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
@@ -79,22 +80,32 @@ export default function Frog() {
           animationData: frog?.lottie[3],
         })
 
-        // ch2.addEventListener('enterFrame', () => {
-        //   if (Math.floor(ch2.currentFrame) === 33) {
-        //     setswing(false)
-        //     console.log("completed honey");
-        //   }
 
-        // })
       } catch (err) {
         console.log(err)
       }
     }
 
     if (Assets && !Loading) {
-      Assets?.frog?.sounds[0]?.play()
+      let sound = Assets?.frog?.sounds[0]
+      sound?.play()
+      sound?.on("end", () => setplaying(false))
     }
   }, [Assets, Loading])
+
+
+  let timer = null
+
+  useEffect(() => {
+    if (!playing) {
+      timer = setTimeout(() => {
+        setplaying(true)
+        const sound = Assets?.frog?.sounds[1]
+        sound?.play()
+        sound?.on("end", () => { setplaying(false) })
+      }, 5000);
+    }
+  }, [playing])
 
 
   useEffect(() => {
@@ -162,7 +173,7 @@ export default function Frog() {
     stop_all_sounds()
     const sound = Assets?.frog?.sounds[3]
     sound?.play()
-
+    setplaying(true)
     setswing(true)
     lottie.stop("swing")
     lottie.play("swing")
@@ -173,13 +184,18 @@ export default function Frog() {
     if (count !== 4) {
       sound.on('end', () => {
         stop_all_sounds()
-        Assets?.frog?.sounds[1]?.play()
+        const sound = Assets?.frog?.sounds[1]
+        sound?.play()
+        sound?.on("end", () => { setplaying(false) })
+
+
       })
     }
   }
 
 
   const NUM1 = () => {
+    if (timer) clearTimeout(timer)
     stop_all_sounds()
     if (num1 > num2) {
       setCorrect(1)
@@ -191,6 +207,7 @@ export default function Frog() {
   }
 
   const NUM2 = () => {
+    if (timer) clearTimeout(timer)
     stop_all_sounds()
     if (num1 < num2) {
       setCorrect(2)
