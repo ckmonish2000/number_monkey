@@ -153,11 +153,13 @@ export default function Frog() {
     }
   }
 
+  const stop_all_sounds = () => {
+    Assets?.frog?.sounds?.map(v => v.stop())
+  }
+
 
   const Next = () => {
-
     stop_all_sounds()
-
     const sound = Assets?.frog?.sounds[3]
     sound?.play()
 
@@ -165,19 +167,40 @@ export default function Frog() {
     lottie.stop("swing")
     lottie.play("swing")
     setcount(count + 1)
-    gen_nums()
+    setTimeout(() => {
+      gen_nums()
+    }, 2000)
     if (count !== 4) {
       sound.on('end', () => {
+        stop_all_sounds()
         Assets?.frog?.sounds[1]?.play()
       })
     }
   }
 
-  const stop_all_sounds = () => {
-    Assets?.frog?.sounds?.map(v => v.stop())
+
+  const NUM1 = () => {
+    stop_all_sounds()
+    if (num1 > num2) {
+      setCorrect(1)
+      setTimeout(() => { Next() }, 1000)
+    } else {
+      setWrong(1)
+      Assets?.frog?.sounds[4]?.play()
+    }
   }
 
-  console.log(Correct);
+  const NUM2 = () => {
+    stop_all_sounds()
+    if (num1 < num2) {
+      setCorrect(2)
+      setTimeout(() => { Next() }, 1000)
+
+    } else {
+      setWrong(2)
+      Assets?.frog?.sounds[4]?.play()
+    }
+  }
   return <Scenes
     Bg={Bg}
     sprites={
@@ -189,14 +212,7 @@ export default function Frog() {
           grey={Assets?.frog?.sprites[2]}
           color={Assets?.frog?.sprites[3]}
           styles={[
-            // {
-            //   position: "absolute",
-            //   left: "74%",
-            //   top: "20%",
-            //   width: "15%",
-            //   height: "50%"
 
-            // },
             "root_star_pos",
             { position: 'absolute', width: '100%', left: "0%" },
             "flower_star_1",
@@ -208,31 +224,12 @@ export default function Frog() {
 
         {count !== 5 && <>
           <span className='num_pos_1'
-            onClick={() => {
-              if (num1 > num2) {
-                setCorrect(1)
-                setTimeout(() => { Next() }, 1000)
-              } else {
-                stop_all_sounds()
-                setWrong(1)
-                Assets?.frog?.sounds[4]?.play()
-              }
-            }}
+            onClick={NUM1}
           >{num1}</span>
 
 
           <span
-            onClick={() => {
-              if (num1 < num2) {
-                setCorrect(2)
-                setTimeout(() => { Next() }, 1000)
-
-              } else {
-                stop_all_sounds()
-                setWrong(2)
-                Assets?.frog?.sounds[4]?.play()
-              }
-            }}
+            onClick={NUM2}
             className='num_pos_2'>{num2}</span>
 
           {/* border 1 */}
@@ -256,15 +253,15 @@ export default function Frog() {
 
 
 
-
-
-
-
           <Image
+            onClick={NUM1}
+            style={{ zIndex: 8 }}
             src={frog?.sprites[0]}
             className='_1st_pebel' />
 
           <Image
+            style={{ zIndex: 8 }}
+            onClick={NUM2}
             src={frog?.sprites[0]}
             className="_2nd_pebel" />
 

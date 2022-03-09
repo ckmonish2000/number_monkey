@@ -201,7 +201,7 @@ export default function Intro() {
     lottie.stop("swing")
     lottie.play("swing")
     setstarCount(starCount + 1)
-    setTimeout(() => { gen_nums() }, 2000)
+    setTimeout(() => { gen_nums() }, 3000)
   }
 
   const NUM1 = () => {
