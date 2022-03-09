@@ -73,7 +73,7 @@ export default function Intro() {
         const sound = Assets?.intro?.sounds[4]
         sound?.play()
         sound?.on("end", () => { setplaying(false) })
-      }, 5000);
+      }, 15000);
     }
   }, [playing])
 

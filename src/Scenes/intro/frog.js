@@ -103,7 +103,7 @@ export default function Frog() {
         const sound = Assets?.frog?.sounds[1]
         sound?.play()
         sound?.on("end", () => { setplaying(false) })
-      }, 5000);
+      }, 15000);
     }
   }, [playing])
 
