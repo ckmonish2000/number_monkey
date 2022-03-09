@@ -24,6 +24,8 @@ const IntroMap = {
     // `${soundUrl}monkey_2.mp3`,
     `${soundUrl}monkey_correct.mp3`,
     `${soundUrl}wrong.mp3`,
+    `${soundUrl}look.mp3`,
+    `${soundUrl}tap.mp3`,
   ],
 
   lottie: [

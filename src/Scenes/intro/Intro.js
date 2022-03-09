@@ -21,6 +21,7 @@ export default function Intro() {
   const [countp1, setcountp1] = useState(0)
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
+  const [playing, setplaying] = useState(true)
 
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
@@ -54,15 +55,28 @@ export default function Intro() {
   useEffect(() => {
     setTimeout(() => {
       setWrong(0)
-    }, 2000)
+    }, 2500)
   }, [Wrong])
 
 
   useEffect(() => {
     setTimeout(() => {
       setCorrect(0)
-    }, 2000)
+    }, 2500)
   }, [Correct])
+
+  let timer = null
+
+  useEffect(() => {
+    if (!playing) {
+      timer = setTimeout(() => {
+        const sound = Assets?.intro?.sounds[4]
+        sound?.play()
+        sound?.on("end", () => { setplaying(false) })
+      }, 5000);
+    }
+  }, [playing])
+
 
   // loading animation
   useEffect(() => {
@@ -106,13 +120,16 @@ export default function Intro() {
     }
 
     if (!Loading) {
-      Assets?.intro?.sounds[0]?.play()
+      const sound = Assets?.intro?.sounds[0]
+      sound?.play()
+      sound?.on("end", () => { setplaying(false) })
     }
   }, [Assets, Loading])
 
   useEffect(() => {
     if (starCount === 6) {
-
+      stop_all_sounds()
+      if (timer) clearTimeout(timer)
       setSceneId("/mend")
     }
   }, [starCount])
@@ -176,7 +193,9 @@ export default function Intro() {
 
   const Next = () => {
     stop_all_sounds()
-    Assets?.intro?.sounds[1]?.play()
+    const sound = Assets?.intro?.sounds[1]
+    sound?.play()
+    sound?.on("end", () => { setplaying(false) })
     setswing(true)
     setcountp1(count + 1)
     lottie.stop("swing")
@@ -186,24 +205,37 @@ export default function Intro() {
   }
 
   const NUM1 = () => {
-    if (num1 > num2 && !swing) {
+    if (timer) clearTimeout(timer)
+    if (num1 > num2) {
+      stop_all_sounds()
       setCorrect(1)
+      setWrong(0)
       setTimeout(() => { Next() }, 1000)
     } else {
       stop_all_sounds()
       setWrong(1)
-      Assets?.intro?.sounds[2]?.play()
+      setCorrect(0)
+      const sound = Assets?.intro?.sounds[2]
+      sound?.play()
+      sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
+
     }
   }
 
   const NUM2 = () => {
-    if (num1 < num2 && !swing) {
+    if (timer) clearTimeout(timer)
+    if (num1 < num2) {
+      stop_all_sounds()
       setCorrect(2)
+      setWrong(0)
       setTimeout(() => { Next() }, 1000)
     } else {
       stop_all_sounds()
       setWrong(2)
-      Assets?.intro?.sounds[2]?.play()
+      setCorrect(0)
+      const sound = Assets?.intro?.sounds[2]
+      sound?.play()
+      sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
     }
   }
 
