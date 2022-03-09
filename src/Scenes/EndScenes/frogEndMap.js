@@ -16,7 +16,9 @@ const FrogEndMap = {
   sounds: [
     // `${soundUrl}Intro.mp3`
 
-    `${soundUrl}frog_2.mp3`
+    `${soundUrl}frog_2.mp3`,
+    `${soundUrl}replayAudio.mp3`,
+    `${soundUrl}claps.mp3`,
   ],
 
   lottie: [

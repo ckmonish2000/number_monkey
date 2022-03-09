@@ -68,7 +68,14 @@ export default function FrogEnd() {
     }
 
     if (Assets && !Loading) {
-      Assets?.frog?.sounds[0]?.play()
+      const sound = Assets?.frog?.sounds[0]
+      sound?.play()
+      sound?.on("end", () => { Assets?.frog?.sounds[1]?.play() })
+      Assets?.frog?.sounds[2]?.play()
+      // sound?.on("ended", () =>{
+      //   Assets?.frog?.sounds[0]?.play()
+      // })
+
     }
   }, [Assets, Loading])
 
