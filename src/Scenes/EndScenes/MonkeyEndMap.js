@@ -19,6 +19,8 @@ const MonkeyEndMap = {
     // `${soundUrl}Intro.mp3`
     `${soundUrl}monkey_1.mp3`,
     `${soundUrl}monkey_2.mp3`,
+    `${soundUrl}replayAudio.mp3`,
+    `${soundUrl}claps.mp3`,
   ],
 
   lottie: [

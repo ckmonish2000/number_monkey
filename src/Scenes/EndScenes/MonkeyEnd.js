@@ -24,20 +24,27 @@ export default function MonkeyEnd() {
 
     bg.style.transform = "scale(1.8) translate(-10%, 0px)"
 
-    const ch = lottie.loadAnimation({
-      name: "hang",
-      container: Ref.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: intro?.lottie[0],
-    })
 
   }, [])
 
   useEffect(() => {
     if (Assets && !Loading) {
-      Assets?.intro?.sounds[1]?.play()
+      Assets?.intro?.sounds[3]?.play()
+      const sound = Assets?.intro?.sounds[1]
+      sound?.play()
+      sound?.on("end", () => {
+        Assets?.intro?.sounds[2]?.play()
+      })
+
+
+      const ch = lottie.loadAnimation({
+        name: "hang",
+        container: Ref.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        animationData: intro?.lottie[0],
+      })
     }
   }, [Assets, Loading])
 
@@ -67,33 +74,9 @@ export default function MonkeyEnd() {
           src={intro?.sprites[0]}
         />
 
-        {/* <Image
-          className="swing_5"
-          src={intro?.sprites[0]}
-        /> */}
-
-        {/* <Image
-          className="swing_3"
-          style={{
-            width: "8%",
-            left: "76%",
-            top: "-2%"
-
-          }}
-          src={intro?.sprites[1]}
-        />
-
-        <Image
-          className="swing_3"
-          style={{
-            width: "17%",
-            left: "72%",
-            top: "24%"
-          }}
-          src={intro?.sprites[2]}
-        /> */}
 
         <div ref={Ref} className="branch4_swing" ></div>
+
         <Image
           onClick={() => {
             const bg = document.querySelector(".Bg_Image")
