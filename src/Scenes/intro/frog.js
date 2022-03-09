@@ -202,7 +202,9 @@ export default function Frog() {
       setTimeout(() => { Next() }, 1000)
     } else {
       setWrong(1)
-      Assets?.frog?.sounds[4]?.play()
+      const sound = Assets?.frog?.sounds[4]
+      sound?.play()
+      sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
     }
   }
 
@@ -215,7 +217,9 @@ export default function Frog() {
 
     } else {
       setWrong(2)
-      Assets?.frog?.sounds[4]?.play()
+      const sound = Assets?.frog?.sounds[4]
+      sound?.play()
+      sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
     }
   }
   return <Scenes

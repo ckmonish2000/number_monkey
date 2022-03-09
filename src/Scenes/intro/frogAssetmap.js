@@ -22,6 +22,7 @@ const FrogMap = {
     `${soundUrl}frog_2.mp3`,
     `${soundUrl}jump.mp3`,
     `${soundUrl}wrong.mp3`,
+    `${soundUrl}look.mp3`,
   ],
 
   lottie: [
