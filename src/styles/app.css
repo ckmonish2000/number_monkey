@@ -1,6 +1,12 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(/public/internal/SassoonSansUSBold.ttf);
+}
+
 *{
   -webkit-user-select:none  !important;
   -webkit-user-drag: none !important;
+  font-family: myFirstFont !important;
 }
 
 .intro_Loading_screen{
