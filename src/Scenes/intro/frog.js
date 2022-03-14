@@ -27,6 +27,7 @@ export default function Frog() {
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
   const [playing, setplaying] = useState(true)
+  const [jumpcomplete, setjumpcomplete] = useState(true)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
@@ -60,6 +61,10 @@ export default function Frog() {
           loop: false,
           autoplay: false,
           animationData: frog?.lottie[1],
+        })
+
+        ch2.addEventListener("complete", () => {
+          setjumpcomplete(true)
         })
 
         const water = lottie.loadAnimation({
@@ -104,6 +109,10 @@ export default function Frog() {
         sound?.play()
         sound?.on("end", () => { setplaying(false) })
       }, 15000);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer)
     }
   }, [playing])
 
@@ -197,29 +206,39 @@ export default function Frog() {
   const NUM1 = () => {
     if (timer) clearTimeout(timer)
     stop_all_sounds()
-    if (num1 > num2) {
-      setCorrect(1)
-      setTimeout(() => { Next() }, 1000)
-    } else {
-      setWrong(1)
-      const sound = Assets?.frog?.sounds[4]
-      sound?.play()
-      sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
+    if (jumpcomplete) {
+      if (num1 > num2) {
+        setjumpcomplete(false)
+        setCorrect(1)
+        setWrong(0)
+        setTimeout(() => { Next() }, 1000)
+      } else {
+        setWrong(1)
+        setCorrect(0)
+        const sound = Assets?.frog?.sounds[4]
+        sound?.play()
+        sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
+      }
     }
   }
 
   const NUM2 = () => {
     if (timer) clearTimeout(timer)
     stop_all_sounds()
-    if (num1 < num2) {
-      setCorrect(2)
-      setTimeout(() => { Next() }, 1000)
+    if (jumpcomplete) {
+      if (num1 < num2) {
+        setjumpcomplete(false)
+        setCorrect(2)
+        setWrong(0)
+        setTimeout(() => { Next() }, 1000)
 
-    } else {
-      setWrong(2)
-      const sound = Assets?.frog?.sounds[4]
-      sound?.play()
-      sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
+      } else {
+        setCorrect(0)
+        setWrong(2)
+        const sound = Assets?.frog?.sounds[4]
+        sound?.play()
+        sound?.on("end", () => { Assets?.frog?.sounds[5]?.play() })
+      }
     }
   }
   return <Scenes

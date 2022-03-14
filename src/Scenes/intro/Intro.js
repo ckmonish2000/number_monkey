@@ -36,6 +36,10 @@ export default function Intro() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
+    const sound = Assets?.intro?.sounds[4]
+    sound?.play()
+    sound?.on("end", () => { setplaying(false) })
+
     const one = randomInt(0, 9)
     let two = randomInt(0, 9)
 
