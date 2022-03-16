@@ -8,32 +8,31 @@ import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/monkey.css"
 import MonkeyEndMap from './MonkeyEndMap';
+import { BGContext } from '../../contexts/Background';
 
 
 export default function MonkeyEnd() {
-  const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
+  // const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-  const { intro } = Assets
+  const { intro2 } = Assets
+  const { Bg, setBg } = useContext(BGContext)
 
 
   const Ref = useRef(null);
   const Ref2 = useRef(null);
 
-  useEffect(() => {
-    const bg = document.querySelector(".Bg_Image")
-
-    bg.style.transform = "scale(1.8) translate(-10%, 0px)"
-
-
-  }, [])
+  // useEffect(() => {
+  //   const bg = document.querySelector(".Bg_Image")
+  //   bg.style.transform = "scale(1.8) translate(-10%, 0px)"
+  // }, [])
 
   useEffect(() => {
-    if (Assets && !Loading) {
-      Assets?.intro?.sounds[3]?.play()
-      const sound = Assets?.intro?.sounds[1]
+    if (Assets) {
+      Assets?.intro2?.sounds[3]?.play()
+      const sound = Assets?.intro2?.sounds[1]
       sound?.play()
       sound?.on("end", () => {
-        Assets?.intro?.sounds[2]?.play()
+        Assets?.intro2?.sounds[2]?.play()
       })
 
 
@@ -43,10 +42,10 @@ export default function MonkeyEnd() {
         renderer: "svg",
         loop: true,
         autoplay: true,
-        animationData: intro?.lottie[0],
+        animationData: intro2?.lottie[0],
       })
     }
-  }, [Assets, Loading])
+  }, [Assets])
 
   return <Scenes
     Bg={Bg}
@@ -56,22 +55,22 @@ export default function MonkeyEnd() {
 
         <Image
           className="swing_1"
-          src={intro?.sprites[0]}
+          src={intro2?.sprites[0]}
         />
 
         <Image
           className="swing_2"
-          src={intro?.sprites[0]}
+          src={intro2?.sprites[0]}
         />
 
         <Image
           className="swing_3"
-          src={intro?.sprites[0]}
+          src={intro2?.sprites[0]}
         />
 
         <Image
           className="swing_4"
-          src={intro?.sprites[0]}
+          src={intro2?.sprites[0]}
         />
 
 
@@ -80,11 +79,11 @@ export default function MonkeyEnd() {
         <Image
           onClick={() => {
             const bg = document.querySelector(".Bg_Image")
-            Assets?.intro?.sounds?.map(v => v.stop())
+            Assets?.intro2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
             setSceneId("/home")
           }}
-          src={Assets?.intro?.sprites[3]} className="replayBtn" />
+          src={Assets?.intro2?.sprites[3]} className="replayBtn" />
       </>
     }
   />;

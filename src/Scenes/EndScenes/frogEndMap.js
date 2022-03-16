@@ -1,7 +1,7 @@
 import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
 
 const FrogEndMap = {
-  id: "frog",
+  id: "frog2",
 
   Bg: `${imgUrl}SB_42_BG_01.svg`,
 

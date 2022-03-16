@@ -1,7 +1,7 @@
 import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
 
 const SelectMap = {
-  id: "select",
+  id: "select2",
 
   Bg: `${imgUrl}SB_42_BG_01.svg`,
 

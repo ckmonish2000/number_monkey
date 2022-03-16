@@ -498,10 +498,10 @@
 
 .replayBtn{
   position: absolute;
-  width: 10%;
-  left: 48%;
-  bottom: 2%;
-  cursor: pointer;
+    width: 8%;
+    left: 48%;
+    bottom: 4%;
+    cursor: pointer;
 }
 
 .replayBtn:active{

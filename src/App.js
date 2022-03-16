@@ -11,6 +11,13 @@ import MonkeyEnd from "./Scenes/EndScenes/MonkeyEnd";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import { SceneContext } from "./contexts/SceneContext";
+import FrogEndMap from "./Scenes/EndScenes/frogEndMap";
+import MonkeyEndMap from "./Scenes/EndScenes/MonkeyEndMap";
+import IntroMap from "./Scenes/intro/AssetMap"
+import FrogMap from "./Scenes/intro/frogAssetmap";
+import SelectMap from "./Scenes/select/selectMap"
+import HomeMap from "./Scenes/HomeMap";
+import useAllAsset from "./utils/useAllAssets";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -22,6 +29,9 @@ function App() {
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
   const { SceneId } = useContext(SceneContext);
+
+  const Map = [FrogEndMap, MonkeyEndMap, IntroMap, FrogMap, SelectMap, HomeMap]
+  const Asset = useAllAsset(Map)
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,9 +69,9 @@ function App() {
   const toggleMute = () => { setmute(!mute) }
 
 
-  if (Load) return <div className="intro_Loading_screen">Loading....</div>
+  if (Asset?.Loading || Load) return <div className="intro_Loading_screen">Loading....</div>
 
-
+  console.log(Asset?.Loading)
   return (
     <GameContainer>
       {!mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}

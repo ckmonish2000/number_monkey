@@ -22,13 +22,15 @@ export default function useAllAsset(ArrayMap) {
       console.log(Map.id)
       const newSceneData = {
         sounds: [],
+        Bg: "",
         sprites: []
       }
 
       const loadImage = new Promise((resolve, reject) => {
         LoadImage(Map.Bg)
           .then(v => {
-            setBg(v)
+            // setBg(v)
+            newSceneData["Bg"] = v
             resolve(v)
           })
           .catch(err => {
@@ -74,7 +76,7 @@ export default function useAllAsset(ArrayMap) {
       //   })
 
     })
-    console.log(Assetz)
+    setAssets(Assetz)
     setLoading(false)
 
   }, [])

@@ -8,13 +8,14 @@ import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 
 import FrogEndMap from './frogEndMap';
+import { BGContext } from '../../contexts/Background';
 
 
 export default function FrogEnd() {
-  const { Bg, Loading } = useLoadAsset(FrogEndMap)
+  // const { Bg, Loading } = useLoadAsset(FrogEndMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-  const { frog } = Assets
-
+  const { frog2 } = Assets
+  const { Bg, setBg } = useContext(BGContext)
 
   const Ref2 = useRef(null);
   const waterRef = useRef(null);
@@ -31,7 +32,7 @@ export default function FrogEnd() {
   // loading animation
   useEffect(() => {
 
-    if (frog && Ref2.current && !Loading) {
+    if (frog2 && Ref2.current) {
       try {
 
 
@@ -39,9 +40,9 @@ export default function FrogEnd() {
           name: "swing",
           container: Ref2.current,
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: true,
-          animationData: frog?.lottie[0],
+          animationData: frog2?.lottie[1],
         })
 
 
@@ -52,7 +53,7 @@ export default function FrogEnd() {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: frog?.lottie[3],
+          animationData: frog2?.lottie[3],
         })
 
         // ch2.addEventListener('enterFrame', () => {
@@ -67,23 +68,23 @@ export default function FrogEnd() {
       }
     }
 
-    if (Assets && !Loading) {
-      const sound = Assets?.frog?.sounds[0]
+    if (Assets) {
+      const sound = Assets?.frog2?.sounds[0]
       sound?.play()
-      sound?.on("end", () => { Assets?.frog?.sounds[1]?.play() })
-      Assets?.frog?.sounds[2]?.play()
+      sound?.on("end", () => { Assets?.frog2?.sounds[1]?.play() })
+      Assets?.frog2?.sounds[2]?.play()
       // sound?.on("ended", () =>{
-      //   Assets?.frog?.sounds[0]?.play()
+      //   Assets?.frog2?.sounds[0]?.play()
       // })
 
     }
-  }, [Assets, Loading])
+  }, [Assets])
 
 
   // useEffect(() => {
   //   if (count === 5) {
   //     stop_all_sounds()
-  //     Assets?.frog?.sounds[2]?.play()
+  //     Assets?.frog2?.sounds[2]?.play()
   //   }
   // }, [count])
 
@@ -110,20 +111,23 @@ export default function FrogEnd() {
         <div
           style={{
             position: "absolute",
-            left: "44%",
-            bottom: "26%",
-            width: "10%"
+            // left: "44%",
+            // bottom: "26%",
+            // width: "10%"
+            left: "33.5%",
+            bottom: "20%",
+            width: "22%"
           }}
           ref={Ref2} className={""}></div>
 
         <Image
           onClick={() => {
             const bg = document.querySelector(".Bg_Image")
-            Assets?.frog?.sounds?.map(v => v.stop())
+            Assets?.frog2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
             setSceneId("/home")
           }}
-          src={Assets?.frog?.sprites[0]} className="replayBtn" />
+          src={Assets?.frog2?.sprites[0]} className="replayBtn" />
       </>
     }
   />;

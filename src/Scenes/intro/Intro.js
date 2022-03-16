@@ -9,11 +9,13 @@ import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/monkey.css"
 import { Stars2 } from './Stars';
+import { BGContext } from '../../contexts/Background';
 
 
 export default function Intro() {
-  const { Bg, Loading } = useLoadAsset(IntroMap)
+  // const { Bg, Loading } = useLoadAsset(IntroMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { Bg, setBg } = useContext(BGContext)
   const { intro } = Assets
 
   const [count, setcount] = useState(1)
@@ -56,6 +58,11 @@ export default function Intro() {
     Assets?.intro?.sounds?.map(v => v.stop())
   }
 
+
+  useEffect(() => {
+    setBg(intro?.Bg)
+  }, [])
+
   useEffect(() => {
     setTimeout(() => {
       setWrong(0)
@@ -79,6 +86,10 @@ export default function Intro() {
         sound?.on("end", () => { setplaying(false) })
       }, 15000);
     }
+
+    return () => {
+      if (timer) clearTimeout(timer)
+    }
   }, [playing])
 
 
@@ -89,7 +100,7 @@ export default function Intro() {
       gen_nums()
     }
 
-    if (intro && Ref.current && !Loading) {
+    if (intro && Ref.current) {
       try {
         const ch = lottie.loadAnimation({
           name: "hang",
@@ -123,12 +134,12 @@ export default function Intro() {
       }
     }
 
-    if (!Loading) {
-      const sound = Assets?.intro?.sounds[0]
-      sound?.play()
-      sound?.on("end", () => { setplaying(false) })
-    }
-  }, [Assets, Loading])
+
+    const sound = Assets?.intro?.sounds[0]
+    sound?.play()
+    sound?.on("end", () => { setplaying(false) })
+
+  }, [Assets])
 
   useEffect(() => {
     if (starCount === 6) {
@@ -210,36 +221,40 @@ export default function Intro() {
 
   const NUM1 = () => {
     if (timer) clearTimeout(timer)
-    if (num1 > num2) {
-      stop_all_sounds()
-      setCorrect(1)
-      setWrong(0)
-      setTimeout(() => { Next() }, 1000)
-    } else {
-      stop_all_sounds()
-      setWrong(1)
-      setCorrect(0)
-      const sound = Assets?.intro?.sounds[2]
-      sound?.play()
-      sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
+    if (!swing) {
+      if (num1 > num2) {
+        stop_all_sounds()
+        setCorrect(1)
+        setWrong(0)
+        setTimeout(() => { Next() }, 1000)
+      } else {
+        stop_all_sounds()
+        setWrong(1)
+        setCorrect(0)
+        const sound = Assets?.intro?.sounds[2]
+        sound?.play()
+        sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
 
+      }
     }
   }
 
   const NUM2 = () => {
     if (timer) clearTimeout(timer)
-    if (num1 < num2) {
-      stop_all_sounds()
-      setCorrect(2)
-      setWrong(0)
-      setTimeout(() => { Next() }, 1000)
-    } else {
-      stop_all_sounds()
-      setWrong(2)
-      setCorrect(0)
-      const sound = Assets?.intro?.sounds[2]
-      sound?.play()
-      sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
+    if (!swing) {
+      if (num1 < num2) {
+        stop_all_sounds()
+        setCorrect(2)
+        setWrong(0)
+        setTimeout(() => { Next() }, 1000)
+      } else {
+        stop_all_sounds()
+        setWrong(2)
+        setCorrect(0)
+        const sound = Assets?.intro?.sounds[2]
+        sound?.play()
+        sound?.on("end", () => { Assets?.intro?.sounds[3]?.play() })
+      }
     }
   }
 

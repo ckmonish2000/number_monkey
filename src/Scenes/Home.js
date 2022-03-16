@@ -5,14 +5,16 @@ import useLoadAsset from '../utils/useLoadAsset';
 import "../styles/intro.css"
 import Image from '../utils/elements/Image';
 import "../styles/monkey.css"
-import HomeMap from './HomeMap';
+import { BGContext } from '../contexts/Background';
 
 
 export default function Home() {
-  const { Bg, Loading } = useLoadAsset(HomeMap)
+  // const { Bg, Loading } = useLoadAsset(HomeMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { Bg, setBg } = useContext(BGContext)
 
   useEffect(() => {
+    setBg(Assets?.select?.Bg)
     const BG_IMG = document.querySelector(".Bg_Image")
     BG_IMG.style.background = "#CDE4F2"
   }, [])

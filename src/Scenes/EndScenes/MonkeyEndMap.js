@@ -1,7 +1,7 @@
 import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
 
 const MonkeyEndMap = {
-  id: "intro",
+  id: "intro2",
 
   Bg: `${imgUrl}SB_42_BG_02.svg`,
 

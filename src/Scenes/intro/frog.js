@@ -8,10 +8,11 @@ import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import FrogMap from './frogAssetmap';
 import Stars from './Stars';
+import { BGContext } from '../../contexts/Background';
 
 
 export default function Frog() {
-  const { Bg, Loading } = useLoadAsset(FrogMap)
+  // const { Bg, Loading } = useLoadAsset(FrogMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { frog } = Assets
 
@@ -29,6 +30,8 @@ export default function Frog() {
   const [playing, setplaying] = useState(true)
   const [jumpcomplete, setjumpcomplete] = useState(true)
 
+  const { Bg, setBg } = useContext(BGContext)
+
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
@@ -44,13 +47,17 @@ export default function Frog() {
     setnum2(two)
   }
 
+  useEffect(() => {
+    setBg(frog?.Bg)
+  }, [])
+
   // loading animation
   useEffect(() => {
     if (num1 == null && num2 === null) {
       gen_nums()
     }
 
-    if (frog && Ref2.current && !Loading) {
+    if (frog && Ref2.current) {
       try {
 
 
@@ -91,12 +98,12 @@ export default function Frog() {
       }
     }
 
-    if (Assets && !Loading) {
+    if (Assets) {
       let sound = Assets?.frog?.sounds[0]
       sound?.play()
       sound?.on("end", () => setplaying(false))
     }
-  }, [Assets, Loading])
+  }, [Assets])
 
 
   let timer = null
