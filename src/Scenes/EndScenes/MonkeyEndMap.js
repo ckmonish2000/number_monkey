@@ -25,7 +25,7 @@ const MonkeyEndMap = {
 
   lottie: [
     // `${lottieUrl}Scene_01.json`,
-    `${lottieUrl}Monkey_Hanging.json`,
+    `${lottieUrl}monkey_banana.json`,
     `${lottieUrl}Monkey_02.json`
   ]
 }

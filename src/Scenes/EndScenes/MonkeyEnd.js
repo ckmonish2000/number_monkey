@@ -28,6 +28,7 @@ export default function MonkeyEnd() {
 
   useEffect(() => {
     if (Assets) {
+      setBg(intro2?.Bg)
       Assets?.intro2?.sounds[3]?.play()
       const sound = Assets?.intro2?.sounds[1]
       sound?.play()
@@ -74,7 +75,7 @@ export default function MonkeyEnd() {
         />
 
 
-        <div ref={Ref} className="branch4_swing" ></div>
+        <div ref={Ref} className="standing_monkey" ></div>
 
         <Image
           onClick={() => {

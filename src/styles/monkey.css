@@ -7,3 +7,10 @@
 
 }
 
+.standing_monkey{
+  position: absolute;
+  width: 20%;
+  height: 35%;
+  right: 23%;
+  bottom: 15%;
+}

@@ -24,6 +24,7 @@ export default function Intro() {
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
   const [playing, setplaying] = useState(true)
+  const [first, setfirst] = useState(true)
 
   const [swing, setswing] = useState(false)
   const Ref = useRef(null);
@@ -38,9 +39,15 @@ export default function Intro() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const sound = Assets?.intro?.sounds[4]
-    sound?.play()
-    sound?.on("end", () => { setplaying(false) })
+    if (!first) {
+      if (starCount < 5) {
+        const sound = Assets?.intro?.sounds[4]
+        sound?.play()
+        sound?.on("end", () => { setplaying(false) })
+      }
+    } else {
+      setfirst(false)
+    }
 
     const one = randomInt(0, 9)
     let two = randomInt(0, 9)
@@ -52,6 +59,7 @@ export default function Intro() {
 
     setnum1(one)
     setnum2(two)
+
   }
 
   const stop_all_sounds = () => {
@@ -89,6 +97,7 @@ export default function Intro() {
 
     return () => {
       if (timer) clearTimeout(timer)
+      stop_all_sounds()
     }
   }, [playing])
 
@@ -177,8 +186,6 @@ export default function Intro() {
     }
   }
 
-
-
   const get_idle_class = () => {
     switch (count) {
       case 1:
@@ -208,9 +215,21 @@ export default function Intro() {
 
   const Next = () => {
     stop_all_sounds()
-    const sound = Assets?.intro?.sounds[1]
-    sound?.play()
-    sound?.on("end", () => { setplaying(false) })
+    if (starCount < 5) {
+
+      const sound = Assets?.intro?.sounds[1]
+      sound?.play()
+      sound?.on("end", () => { setplaying(false) })
+    }
+    // setswing(true)
+    // setcountp1(count + 1)
+    // lottie.stop("swing")
+    // lottie.play("swing")
+    // setstarCount(starCount + 1)
+    // setTimeout(() => { gen_nums() }, 3000)
+  }
+
+  const callZ = () => {
     setswing(true)
     setcountp1(count + 1)
     lottie.stop("swing")
@@ -223,6 +242,7 @@ export default function Intro() {
     if (timer) clearTimeout(timer)
     if (!swing) {
       if (num1 > num2) {
+        callZ()
         stop_all_sounds()
         setCorrect(1)
         setWrong(0)
@@ -243,6 +263,7 @@ export default function Intro() {
     if (timer) clearTimeout(timer)
     if (!swing) {
       if (num1 < num2) {
+        callZ()
         stop_all_sounds()
         setCorrect(2)
         setWrong(0)
