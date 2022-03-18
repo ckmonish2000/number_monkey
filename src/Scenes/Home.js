@@ -8,7 +8,7 @@ import "../styles/monkey.css"
 import { BGContext } from '../contexts/Background';
 
 
-export default function Home() {
+export default function Home({ play }) {
   // const { Bg, Loading } = useLoadAsset(HomeMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
@@ -32,7 +32,10 @@ export default function Home() {
           src={Assets?.select?.sprites[2]} className="number_fg_title" />
 
         <Image
-          onClick={() => { setSceneId("/select") }}
+          onClick={() => {
+            play()
+            setSceneId("/select")
+          }}
           src={Assets?.select?.sprites[0]} className="play_butn" />
 
         {/* <div className="select_bg">.</div>

@@ -11,7 +11,7 @@ import MonkeyEndMap from './MonkeyEndMap';
 import { BGContext } from '../../contexts/Background';
 
 
-export default function MonkeyEnd() {
+export default function MonkeyEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { intro2 } = Assets
@@ -82,6 +82,7 @@ export default function MonkeyEnd() {
             const bg = document.querySelector(".Bg_Image")
             Assets?.intro2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
+            stop()
             setSceneId("/home")
           }}
           src={Assets?.intro2?.sprites[3]} className="replayBtn" />

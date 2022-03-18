@@ -11,7 +11,7 @@ import FrogEndMap from './frogEndMap';
 import { BGContext } from '../../contexts/Background';
 
 
-export default function FrogEnd() {
+export default function FrogEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(FrogEndMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { frog2 } = Assets
@@ -125,6 +125,7 @@ export default function FrogEnd() {
             const bg = document.querySelector(".Bg_Image")
             Assets?.frog2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
+            stop()
             setSceneId("/home")
           }}
           src={Assets?.frog2?.sprites[0]} className="replayBtn" />
