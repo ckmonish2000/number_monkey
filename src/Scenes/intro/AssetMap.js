@@ -1,37 +1,37 @@
-import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
+import { imgurl, soundurl, lottieurl } from "../../utils/path"
 
 const IntroMap = {
   id: "intro",
 
-  Bg: `${imgUrl}SB_42_BG_02.svg`,
+  Bg: `${imgurl}sb_42_bg_02.svg`,
 
   sprites: [
-    // `${imgUrl}Intro-Text.svg`,
-    // `${imgUrl}play.svg`,
-    `${imgUrl}FG_monkey.svg`,
-    `${imgUrl}pink_box.svg`,
-    `${imgUrl}monkey/bar.svg`,
-    `${imgUrl}monkey/grey.svg`,
-    `${imgUrl}monkey/banana.svg`,
-    `${imgUrl}red_border.svg`,
-    `${imgUrl}green_border.svg`
+    // `${imgurl}intro_text.svg`,
+    // `${imgurl}play.svg`,
+    `${imgurl}fg_monkey.svg`,
+    `${imgurl}pink_box.svg`,
+    `${imgurl}monkey/bar.svg`,
+    `${imgurl}monkey/grey.svg`,
+    `${imgurl}monkey/banana.svg`,
+    `${imgurl}red_border.svg`,
+    `${imgurl}green_border.svg`
   ],
 
 
   sounds: [
-    // `${soundUrl}Intro.mp3`
-    `${soundUrl}monkey_1.mp3`,
-    // `${soundUrl}monkey_2.mp3`,
-    `${soundUrl}monkey_correct.mp3`,
-    `${soundUrl}wrong.mp3`,
-    `${soundUrl}look.mp3`,
-    `${soundUrl}tap.mp3`,
+    // `${soundurl}intro.mp3`
+    `${soundurl}monkey_1.mp3`,
+    // `${soundurl}monkey_2.mp3`,
+    `${soundurl}monkey_correct.mp3`,
+    `${soundurl}wrong.mp3`,
+    `${soundurl}look.mp3`,
+    `${soundurl}tap.mp3`,
   ],
 
   lottie: [
-    // `${lottieUrl}Scene_01.json`,
-    `${lottieUrl}Monkey_Hanging.json`,
-    `${lottieUrl}Monkey_02.json`
+    // `${lottieurl}scene_01.json`,
+    `${lottieurl}monkey_hanging.json`,
+    `${lottieurl}monkey_02.json`
   ]
 }
 

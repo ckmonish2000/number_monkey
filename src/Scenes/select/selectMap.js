@@ -1,25 +1,25 @@
-import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
+import { imgurl, soundurl, lottieurl } from "../../utils/path"
 
 const SelectMap = {
   id: "select2",
 
-  Bg: `${imgUrl}SB_42_BG_01.svg`,
+  Bg: `${imgurl}sb_42_bg_01.svg`,
 
   sprites: [
-    `${imgUrl}select_circle.svg`,
-    `${imgUrl}FROG_3.svg`,
-    `${imgUrl}monkey_3.svg`
+    `${imgurl}select_circle.svg`,
+    `${imgurl}frog_3.svg`,
+    `${imgurl}monkey_3.svg`
   ],
 
 
   sounds: [
-    `${soundUrl}select_audio.mp3`
+    `${soundurl}select_audio.mp3`
   ],
 
   lottie: [
-    // `${lottieUrl}Scene_01.json`,
-    `${lottieUrl}Monkey_Hanging.json`,
-    `${lottieUrl}Monkey_02.json`
+    // `${lottieurl}scene_01.json`,
+    `${lottieurl}monkey_hanging.json`,
+    `${lottieurl}monkey_02.json`
   ]
 }
 

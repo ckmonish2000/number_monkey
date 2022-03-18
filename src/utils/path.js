@@ -1,3 +1,3 @@
-export const imgUrl = "internal/images/"
-export const soundUrl = "internal/sounds/"
-export const lottieUrl = "internal/lottie/"
+export const imgurl = "internal/images/"
+export const soundurl = "internal/sounds/"
+export const lottieurl = "internal/lottie/"

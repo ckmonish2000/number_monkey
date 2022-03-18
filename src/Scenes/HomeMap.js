@@ -1,19 +1,19 @@
-import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
+import { imgurl, soundurl, lottieurl } from "../utils/path"
 
 const HomeMap = {
   id: "select",
 
-  Bg: `${imgUrl}intro/Intro_BG.svg`,
+  Bg: `${imgurl}intro/intro_bg.svg`,
 
   sprites: [
-    `${imgUrl}play.svg`,
-    `${imgUrl}intro/Intro_BG_Numbers.svg`,
-    `${imgUrl}intro/Intro_BG_Title.svg`,
+    `${imgurl}play.svg`,
+    `${imgurl}intro/intro_bg_numbers.svg`,
+    `${imgurl}intro/intro_bg_title.svg`,
   ],
 
 
   sounds: [
-    // `${soundUrl}Intro.mp3`
+    // `${soundurl}intro.mp3`
   ],
 
   lottie: [

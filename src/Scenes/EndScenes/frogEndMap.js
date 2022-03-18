@@ -1,32 +1,32 @@
-import { imgUrl, soundUrl, lottieUrl } from "../../utils/path"
+import { imgurl, soundurl, lottieurl } from "../../utils/path"
 
 const FrogEndMap = {
   id: "frog2",
 
-  Bg: `${imgUrl}SB_42_BG_01.svg`,
+  Bg: `${imgurl}sb_42_bg_01.svg`,
 
   sprites: [
-    // `${imgUrl}Intro-Text.svg`,
-    // `${imgUrl}play.svg`,
-    // `${imgUrl}FG_monkey.svg`
-    `${imgUrl}replay.svg`
+    // `${imgurl}intro_text.svg`,
+    // `${imgurl}play.svg`,
+    // `${imgurl}fg_monkey.svg`
+    `${imgurl}replay.svg`
   ],
 
 
   sounds: [
-    // `${soundUrl}Intro.mp3`
+    // `${soundurl}intro.mp3`
 
-    `${soundUrl}frog_2.mp3`,
-    `${soundUrl}replayAudio.mp3`,
-    `${soundUrl}claps.mp3`,
+    `${soundurl}frog_2.mp3`,
+    `${soundurl}replayaudio.mp3`,
+    `${soundurl}claps.mp3`,
   ],
 
   lottie: [
-    // `${lottieUrl}Scene_01.json`,
-    `${lottieUrl}frog/SB42_Frog_Idle.json`,
-    `${lottieUrl}frog/SB42_Frog_Jump_01.json`,
-    `${lottieUrl}frog/water_ripple.json`,
-    `${lottieUrl}frog/SB42_Big_Frog_idle.json`
+    // `${lottieurl}scene_01.json`,
+    `${lottieurl}frog/sb42_frog_idle.json`,
+    `${lottieurl}frog/sb42_frog_jump_01.json`,
+    `${lottieurl}frog/water_ripple.json`,
+    `${lottieurl}frog/sb42_big_frog_idle.json`
   ]
 }
 

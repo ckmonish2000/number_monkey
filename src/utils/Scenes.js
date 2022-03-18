@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, Fragment } from 'react'
 import { SceneContext } from '../contexts/SceneContext'
 // import "../styles/Scenes.css"
-// import apple from "./Apple.svg"
+// import apple from "./apple.svg"
 
 export default function Scenes({ sprites, Bg = "" }) {
   const { setSceneId, setisLoading, isLoading } = useContext(SceneContext)
