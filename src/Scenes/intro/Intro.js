@@ -81,7 +81,7 @@ export default function Intro() {
   useEffect(() => {
     setTimeout(() => {
       setCorrect(0)
-    }, 2500)
+    }, 3000)
   }, [Correct])
 
   let timer = null

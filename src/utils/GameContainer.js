@@ -12,8 +12,9 @@ export default function GameContainer({ children }) {
   }, [])
 
   const onResize = () => {
-    const scale = (window.innerWidth * 0.65 / 1000)
+    const scale = (window.innerWidth * 0.67 / 1000)
     setscale(scale)
+    console.log(window.innerWidth, window.innerHeight)
   }
 
 

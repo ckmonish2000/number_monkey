@@ -144,7 +144,7 @@ export default function Frog() {
   useEffect(() => {
     setTimeout(() => {
       setCorrect(0)
-    }, 1000)
+    }, 2100)
   }, [Correct])
 
 
