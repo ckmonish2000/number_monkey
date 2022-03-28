@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function GameContainer({ children }) {
-  const [scale, setscale] = useState(window.innerWidth * 0.65 / 1000);
+  const [scale, setscale] = useState(window.innerWidth * 0.67 / 1000);
 
   useEffect(() => {
     window.addEventListener("resize", onResize)
