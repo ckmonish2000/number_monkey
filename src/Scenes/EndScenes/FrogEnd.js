@@ -13,12 +13,13 @@ import { BGContext } from '../../contexts/Background';
 
 export default function FrogEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(FrogEndMap)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { frog2 } = Assets
   const { Bg, setBg } = useContext(BGContext)
+  const [IsLoading, setIsLoading] = useState(true);
 
   const Ref2 = useRef(null);
-  const waterRef = useRef(null);
+  const Ref22 = useRef(null);
   const BigFrogRef = useRef(null);
 
 
@@ -26,13 +27,26 @@ export default function FrogEnd({ stop }) {
     setBg(Assets?.frog?.Bg)
     const bg = document.querySelector(".Bg_Image")
     bg.style.transform = "scale(1.6) translate(-23%, 0px)"
+
+    const ch = lottie.loadAnimation({
+      name: "hang",
+      container: Ref22.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: frog2?.lottie[4],
+    })
+
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
   }, [])
 
 
   // loading animation
   useEffect(() => {
 
-    if (frog2 && Ref2.current) {
+    if (frog2 && Ref2.current && !IsLoading) {
       try {
 
 
@@ -68,7 +82,7 @@ export default function FrogEnd({ stop }) {
       }
     }
 
-    if (Assets) {
+    if (Assets && !IsLoading) {
       const sound = Assets?.frog2?.sounds[0]
       sound?.play()
       sound?.on("end", () => { Assets?.frog2?.sounds[1]?.play() })
@@ -78,7 +92,7 @@ export default function FrogEnd({ stop }) {
       // })
 
     }
-  }, [Assets])
+  }, [Assets, IsLoading])
 
 
   // useEffect(() => {
@@ -97,7 +111,7 @@ export default function FrogEnd({ stop }) {
     sprites={
       <>
 
-        {/* <div ref={Ref} className='frog_start_jump'></div> */}
+        {IsLoading && <div ref={Ref22} className='trans'></div>}
         <div
           style={{
             left: "49%",
