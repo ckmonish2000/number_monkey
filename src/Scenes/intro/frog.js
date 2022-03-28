@@ -35,11 +35,11 @@ export default function Frog() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const one = randomInt(0, 9)
-    let two = randomInt(0, 9)
+    const one = randomInt(1, 100)
+    let two = randomInt(1, 100)
 
     while (two === one) {
-      two = randomInt(0, 9)
+      two = randomInt(1, 100)
     }
 
 
@@ -271,11 +271,29 @@ export default function Frog() {
 
         {count !== 5 && <>
           <span className='num_pos_1'
+            style={
+              `${num1}`.length !== 3 ?
+                { left: `${num1}`.length === 2 ? "37.5%" : "" } :
+                {
+                  fontSize: "700%",
+                  left: "35.8%",
+                  bottom: "41px"
+                }
+            }
             onClick={NUM1}
           >{num1}</span>
 
 
           <span
+            style={
+              `${num2}`.length !== 3 ?
+                { left: `${num2}`.length === 2 ? "56.4%" : "" } :
+                {
+                  fontSize: "700%",
+                  left: "55%",
+                  bottom: "41px"
+                }
+            }
             onClick={NUM2}
             className='num_pos_2'>{num2}</span>
 
