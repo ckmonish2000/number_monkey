@@ -72,7 +72,7 @@ export default function FrogEnd({ stop }) {
       const sound = Assets?.frog2?.sounds[0]
       sound?.play()
       sound?.on("end", () => { Assets?.frog2?.sounds[1]?.play() })
-      Assets?.frog2?.sounds[2]?.play()
+      // Assets?.frog2?.sounds[2]?.play()
       // sound?.on("ended", () =>{
       //   Assets?.frog2?.sounds[0]?.play()
       // })
