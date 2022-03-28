@@ -25,7 +25,8 @@ const FrogEndMap = {
     `${lottieurl}frog/sb42_frog_idle.json`,
     `${lottieurl}frog/sb42_frog_jump_01.json`,
     `${lottieurl}frog/water_ripple.json`,
-    `${lottieurl}frog/sb42_big_frog_idle.json`
+    `${lottieurl}frog/sb42_big_frog_idle.json`,
+    `${lottieurl}trans.json`
   ]
 }
 
