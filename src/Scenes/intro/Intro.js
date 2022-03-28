@@ -87,7 +87,7 @@ export default function Intro() {
   let timer = null
 
   useEffect(() => {
-    if (!playing) {
+    if (!playing && count < 5) {
       timer = setTimeout(() => {
         const sound = Assets?.intro?.sounds[4]
         sound?.play()
@@ -216,17 +216,10 @@ export default function Intro() {
   const Next = () => {
     stop_all_sounds()
     if (starCount < 5) {
-
       const sound = Assets?.intro?.sounds[1]
       sound?.play()
       sound?.on("end", () => { setplaying(false) })
     }
-    // setswing(true)
-    // setcountp1(count + 1)
-    // lottie.stop("swing")
-    // lottie.play("swing")
-    // setstarCount(starCount + 1)
-    // setTimeout(() => { gen_nums() }, 3000)
   }
 
   const callZ = () => {
