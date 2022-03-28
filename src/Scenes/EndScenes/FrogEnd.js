@@ -23,8 +23,8 @@ export default function FrogEnd({ stop }) {
 
 
   useEffect(() => {
+    setBg(Assets?.frog?.Bg)
     const bg = document.querySelector(".Bg_Image")
-
     bg.style.transform = "scale(1.6) translate(-23%, 0px)"
   }, [])
 
