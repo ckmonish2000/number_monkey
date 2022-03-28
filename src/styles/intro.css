@@ -520,3 +520,11 @@
 .mute_btn:active{
   transform:scale(0.8)
 }
+
+.trans{
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  z-index: 999999;
+}

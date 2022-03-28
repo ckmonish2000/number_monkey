@@ -13,22 +13,33 @@ import { BGContext } from '../../contexts/Background';
 
 export default function MonkeyEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro2 } = Assets
   const { Bg, setBg } = useContext(BGContext)
-
+  const [IsLoading, setIsLoading] = useState(true);
 
   const Ref = useRef(null);
   const Ref2 = useRef(null);
 
-  // useEffect(() => {
-  //   const bg = document.querySelector(".Bg_Image")
-  //   bg.style.transform = "scale(1.8) translate(-10%, 0px)"
-  // }, [])
+  useEffect(() => {
+    setBg(intro2?.Bg)
+
+    const ch = lottie.loadAnimation({
+      name: "hang",
+      container: Ref2.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: intro2?.lottie[2],
+    })
+
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+  }, [])
 
   useEffect(() => {
-    if (Assets) {
-      setBg(intro2?.Bg)
+    if (Assets && !IsLoading) {
       Assets?.intro2?.sounds[3]?.play()
       const sound = Assets?.intro2?.sounds[1]
       sound?.play()
@@ -46,13 +57,15 @@ export default function MonkeyEnd({ stop }) {
         animationData: intro2?.lottie[0],
       })
     }
-  }, [Assets])
+  }, [Assets, IsLoading])
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
 
+        {IsLoading && <div
+          ref={Ref2} className="trans"></div>}
 
         <Image
           className="swing_1"
