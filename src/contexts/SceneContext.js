@@ -8,7 +8,8 @@ export default function SceneContextProvider({ children }) {
   const [isLoading, setisLoading] = useState(true)
   // state to manage sounds and images for each scene
   const [Assets, setAssets] = useState({})
-
+  const [Ipad, setIpad] = useState(false)
+  const [LandScape, setLandScape] = useState(false)
 
   // loading part
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets }}>
+    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Ipad, setIpad, LandScape, setLandScape }}>
       {children}
     </SceneContext.Provider>
   )

@@ -104,7 +104,8 @@ export default function FrogEnd({ stop }) {
 
 
 
-
+  const stone_2 = Assets?.select?.sprites[4]
+  const stone_1 = Assets?.select?.sprites[3]
 
   return <Scenes
     Bg={Bg}
@@ -114,10 +115,9 @@ export default function FrogEnd({ stop }) {
         {IsLoading && <div ref={Ref22} className='trans'></div>}
         <div
           style={{
-            left: "49%",
-            bottom: "21%",
+            left: "50%",
+            bottom: "15%",
             width: "22%"
-
           }}
           className='Big_frog'
           ref={BigFrogRef}></div>
@@ -129,8 +129,9 @@ export default function FrogEnd({ stop }) {
             // bottom: "26%",
             // width: "10%"
             left: "33.5%",
-            bottom: "20%",
-            width: "22%"
+            bottom: "19%",
+            width: "22%",
+            zIndex: 9
           }}
           ref={Ref2} className={""}></div>
 
@@ -143,6 +144,13 @@ export default function FrogEnd({ stop }) {
             setSceneId("/home")
           }}
           src={Assets?.frog2?.sprites[0]} className="replayBtn" />
+
+        <Image src={stone_2} className="big_rock_end" />
+
+        <Image src={stone_1} className="rock_2" style={{ left: "7.5%", bottom: "20%" }} />
+        <Image src={stone_1} className="rock_3" style={{ left: "16.5%", bottom: "19%" }} />
+        <Image src={stone_1} className="rock_4" style={{ left: "25%", bottom: "18.5%" }} />
+        <Image src={stone_1} className="rock_5" style={{ left: "33%", bottom: "16%" }} />
       </>
     }
   />;

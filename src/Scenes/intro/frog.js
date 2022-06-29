@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 
 export default function Frog() {
   // const { Bg, Loading } = useLoadAsset(FrogMap)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Ipad } = useContext(SceneContext);
   const { frog } = Assets
 
   const [count, setcount] = useState(0)
@@ -35,11 +35,11 @@ export default function Frog() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const one = randomInt(1, 100)
-    let two = randomInt(1, 100)
+    const one = randomInt(1, 50)
+    let two = randomInt(1, 50)
 
     while (two === one) {
-      two = randomInt(1, 100)
+      two = randomInt(1, 50)
     }
 
 
@@ -248,12 +248,15 @@ export default function Frog() {
       }
     }
   }
+
+  const stone_1 = Assets?.select?.sprites[3]
+  const stone_2 = Assets?.select?.sprites[4]
   return <Scenes
     Bg={Bg}
     sprites={
       <>
         <Stars
-
+          Ipad={Ipad}
           count={count}
           board={Assets?.frog?.sprites[1]}
           grey={Assets?.frog?.sprites[2]}
@@ -273,10 +276,10 @@ export default function Frog() {
           <span className='num_pos_1'
             style={
               `${num1}`.length !== 3 ?
-                { left: `${num1}`.length === 2 ? "37.5%" : "" } :
+                { left: `${num1}`.length === 2 ? "35%" : "" } :
                 {
                   fontSize: "700%",
-                  left: "35.8%",
+                  left: "35.5%",
                   bottom: "41px"
                 }
             }
@@ -287,7 +290,7 @@ export default function Frog() {
           <span
             style={
               `${num2}`.length !== 3 ?
-                { left: `${num2}`.length === 2 ? "56.4%" : "" } :
+                { left: `${num2}`.length === 2 ? "52%" : "" } :
                 {
                   fontSize: "700%",
                   left: "55%",
@@ -338,6 +341,19 @@ export default function Frog() {
         <div className='Big_frog' ref={BigFrogRef}></div>
         <div className='water_ripple_pos' ref={waterRef}></div>
         <div ref={Ref2} className={get_pos()}></div>
+
+
+        {/* stones */}
+        <Image src={stone_1} className="rock_1" />
+        <Image src={stone_1} className="rock_2" />
+        <Image src={stone_1} className="rock_3" />
+        <Image src={stone_1} className="rock_4" />
+        <Image src={stone_1} className="rock_5" />
+
+        {/* big rock */}
+        <Image src={stone_2} className="big_rock_1" />
+        <Image src={stone_2} className="big_rock_2" />
+
       </>
     }
   />;

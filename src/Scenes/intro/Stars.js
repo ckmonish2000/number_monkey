@@ -1,9 +1,11 @@
 import React from 'react'
+import { useContext } from 'react/cjs/react.production.min'
+import { SceneContext } from '../../contexts/SceneContext'
 import Image from '../../utils/elements/Image'
 
-export default function Stars({ board, grey, color, styles, count }) {
+export default function Stars({ board, grey, color, styles, count, Ipad = false }) {
   return (
-    <div className={styles[0]}>
+    <div className={styles[0]} style={{ top: Ipad ? "-14%" : "" }} >
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 
@@ -18,9 +20,9 @@ export default function Stars({ board, grey, color, styles, count }) {
 }
 
 
-export function Stars2({ board, grey, color, styles, count }) {
+export function Stars2({ board, grey, color, styles, count, Ipad }) {
   return (
-    <div className={styles[0]}>
+    <div className={styles[0]} style={{ top: Ipad ? "-14%" : "" }} >
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 

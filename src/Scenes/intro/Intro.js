@@ -36,6 +36,7 @@ export default function Intro() {
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
 
+  const { Ipad } = useContext(SceneContext)
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
@@ -49,11 +50,11 @@ export default function Intro() {
       setfirst(false)
     }
 
-    const one = randomInt(1, 100)
-    let two = randomInt(1, 100)
+    const one = randomInt(1, 50)
+    let two = randomInt(1, 50)
 
     while (two === one) {
-      two = randomInt(1, 100)
+      two = randomInt(1, 50)
     }
 
 
@@ -298,11 +299,12 @@ export default function Intro() {
 
 
         <Stars2
+          Ipad={Ipad}
           count={starCount}
           board={Assets?.intro?.sprites[2]}
           grey={Assets?.intro?.sprites[3]}
           color={Assets?.intro?.sprites[4]}
-          styles={["root_star_pos",
+          styles={["root_star_pos2",
             { position: 'absolute', width: '100%', left: "0%" },
             "b_star_1",
             "b_star_2",
@@ -316,7 +318,7 @@ export default function Intro() {
         <span className='num_pos_1'
           style={
             `${num1}`.length !== 3 ?
-              { left: `${num1}`.length === 2 ? "37.5%" : "" } :
+              { left: `${num1}`.length === 2 ? "35%" : "" } :
               {
                 fontSize: "700%",
                 left: "35.8%",
@@ -330,7 +332,7 @@ export default function Intro() {
         <span
           style={
             `${num2}`.length !== 3 ?
-              { left: `${num2}`.length === 2 ? "56.4%" : "" } :
+              { left: `${num2}`.length === 2 ? "52%" : "" } :
               {
                 fontSize: "700%",
                 left: "55%",
@@ -354,39 +356,39 @@ export default function Intro() {
         {/* Title */}
 
         <Image
-          style={{ display: count === 1 ? "none" : "" }}
+          style={{ display: count === 1 ? "none" : "", top: Ipad ? "-26%" : "" }}
           className="swing_1"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 2 || countp1 === 2 ? "none" : "" }}
+          style={{ display: count === 2 || countp1 === 2 ? "none" : "", top: Ipad ? "-26%" : "" }}
           className="swing_2"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 3 || countp1 === 3 ? "none" : "" }}
+          style={{ display: count === 3 || countp1 === 3 ? "none" : "", top: Ipad ? "-26%" : "" }}
           className="swing_3"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 4 || countp1 === 4 ? "none" : "" }}
+          style={{ display: count === 4 || countp1 === 4 ? "none" : "", top: Ipad ? "-26%" : "" }}
           className="swing_4"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 5 || countp1 === 5 ? "none" : "" }}
+          style={{ display: count === 5 || countp1 === 5 ? "none" : "", top: Ipad ? "-26%" : "" }}
           className="swing_5"
           src={intro?.sprites[0]}
         />
 
 
 
-        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0 }}></div>
-        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1 }}></div>
+        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0, top: Ipad ? "-26%" : "" }}></div>
+        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1, top: Ipad ? "-26%" : "" }}></div>
       </>
     }
   />;

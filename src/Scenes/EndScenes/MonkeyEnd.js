@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 
 export default function MonkeyEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, Ipad } = useContext(SceneContext);
   const { intro2 } = Assets
   const { Bg, setBg } = useContext(BGContext)
   const [IsLoading, setIsLoading] = useState(true);
@@ -70,25 +70,29 @@ export default function MonkeyEnd({ stop }) {
         <Image
           className="swing_1"
           src={intro2?.sprites[0]}
+          style={{ top: Ipad ? "-26%" : "" }}
         />
 
         <Image
           className="swing_2"
           src={intro2?.sprites[0]}
+          style={{ top: Ipad ? "-26%" : "" }}
         />
 
         <Image
           className="swing_3"
           src={intro2?.sprites[0]}
+          style={{ top: Ipad ? "-26%" : "" }}
         />
 
         <Image
           className="swing_4"
           src={intro2?.sprites[0]}
+          style={{ top: Ipad ? "-26%" : "" }}
         />
 
 
-        <div ref={Ref} className="standing_monkey" ></div>
+        <div ref={Ref} className="standing_monkey" style={{ bottom: Ipad ? "0%" : "" }}></div>
 
         <Image
           onClick={() => {
