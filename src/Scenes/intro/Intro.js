@@ -12,14 +12,13 @@ import { Stars2 } from './Stars';
 import { BGContext } from '../../contexts/Background';
 
 
-export default function Intro() {
+export default function Intro({ isMaxHub }) {
   // const { Bg, Loading } = useLoadAsset(IntroMap)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, starCount, setstarCount } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const { intro } = Assets
 
   const [count, setcount] = useState(1)
-  const [starCount, setstarCount] = useState(1)
   const [countp1, setcountp1] = useState(0)
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
@@ -50,11 +49,11 @@ export default function Intro() {
       setfirst(false)
     }
 
-    const one = randomInt(1, 50)
-    let two = randomInt(1, 50)
+    const one = randomInt(41, 50)
+    let two = randomInt(41, 50)
 
     while (two === one) {
-      two = randomInt(1, 50)
+      two = randomInt(41, 50)
     }
 
 
@@ -273,6 +272,8 @@ export default function Intro() {
     }
   }
 
+  console.log(isMaxHub, "ss")
+
   return <Scenes
     Bg={Bg}
     sprites={
@@ -298,21 +299,7 @@ export default function Intro() {
           className='_2nd_pebel' />}
 
 
-        <Stars2
-          Ipad={Ipad}
-          count={starCount}
-          board={Assets?.intro?.sprites[2]}
-          grey={Assets?.intro?.sprites[3]}
-          color={Assets?.intro?.sprites[4]}
-          styles={["root_star_pos2",
-            { position: 'absolute', width: '100%', left: "0%" },
-            "b_star_1",
-            "b_star_2",
-            "b_star_3",
-            "b_star_4",
-            "b_star_5",
-          ]}
-        />
+
 
 
         <span className='num_pos_1'
@@ -356,39 +343,41 @@ export default function Intro() {
         {/* Title */}
 
         <Image
-          style={{ display: count === 1 ? "none" : "", top: Ipad ? "-26%" : "" }}
+          style={{ display: count === 1 ? "none" : "", top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}
           className="swing_1"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 2 || countp1 === 2 ? "none" : "", top: Ipad ? "-26%" : "" }}
+          style={{ display: count === 2 || countp1 === 2 ? "none" : "", top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}
           className="swing_2"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 3 || countp1 === 3 ? "none" : "", top: Ipad ? "-26%" : "" }}
+          style={{ display: count === 3 || countp1 === 3 ? "none" : "", top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}
           className="swing_3"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 4 || countp1 === 4 ? "none" : "", top: Ipad ? "-26%" : "" }}
+          style={{ display: count === 4 || countp1 === 4 ? "none" : "", top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}
           className="swing_4"
           src={intro?.sprites[0]}
         />
 
         <Image
-          style={{ display: count === 5 || countp1 === 5 ? "none" : "", top: Ipad ? "-26%" : "" }}
+          style={{ display: count === 5 || countp1 === 5 ? "none" : "", top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}
           className="swing_5"
           src={intro?.sprites[0]}
         />
 
 
 
-        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0, top: Ipad ? "-26%" : "" }}></div>
-        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1, top: Ipad ? "-26%" : "" }}></div>
+        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0, top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}></div>
+        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1, top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}></div>
+
+
       </>
     }
   />;

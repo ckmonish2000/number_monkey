@@ -13,10 +13,10 @@ import { BGContext } from '../../contexts/Background';
 
 export default function Frog() {
   // const { Bg, Loading } = useLoadAsset(FrogMap)
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Ipad } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Ipad, count, setcount } = useContext(SceneContext);
   const { frog } = Assets
 
-  const [count, setcount] = useState(0)
+
   const [swing, setswing] = useState(false)
 
   const Ref2 = useRef(null);
@@ -35,11 +35,11 @@ export default function Frog() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const one = randomInt(1, 50)
-    let two = randomInt(1, 50)
+    const one = randomInt(41, 50)
+    let two = randomInt(41, 50)
 
     while (two === one) {
-      two = randomInt(1, 50)
+      two = randomInt(41, 50)
     }
 
 
@@ -255,22 +255,7 @@ export default function Frog() {
     Bg={Bg}
     sprites={
       <>
-        <Stars
-          Ipad={Ipad}
-          count={count}
-          board={Assets?.frog?.sprites[1]}
-          grey={Assets?.frog?.sprites[2]}
-          color={Assets?.frog?.sprites[3]}
-          styles={[
 
-            "root_star_pos",
-            { position: 'absolute', width: '100%', left: "0%" },
-            "flower_star_1",
-            "flower_star_2",
-            "flower_star_3",
-            "flower_star_4",
-            "flower_star_5",
-          ]} />
 
         {count !== 5 && <>
           <span className='num_pos_1'

@@ -5,7 +5,7 @@ import Image from '../../utils/elements/Image'
 
 export default function Stars({ board, grey, color, styles, count, Ipad = false }) {
   return (
-    <div className={styles[0]} style={{ top: Ipad ? "-14%" : "" }} >
+    <div className={styles[0]} style={{ top: Ipad ? "" : "" }} >
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 
@@ -22,7 +22,7 @@ export default function Stars({ board, grey, color, styles, count, Ipad = false 
 
 export function Stars2({ board, grey, color, styles, count, Ipad }) {
   return (
-    <div className={styles[0]} style={{ top: Ipad ? "-14%" : "" }} >
+    <div className={styles[0]} style={{ top: Ipad ? "" : "" }} >
       <Image src={board} />
       <Image src={grey} style={styles[1]} />
 

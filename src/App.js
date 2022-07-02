@@ -18,6 +18,7 @@ import FrogMap from "./Scenes/intro/frogAssetmap";
 import SelectMap from "./Scenes/select/selectMap"
 import HomeMap from "./Scenes/HomeMap";
 import useAllAsset from "./utils/useAllAssets";
+import Stars, { Stars2 } from "./Scenes/intro/Stars";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -28,13 +29,15 @@ function App() {
   const [icon2, seticon2] = useState("")
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
-  const { SceneId, setLandScape, setIpad, LandScape } = useContext(SceneContext);
+  const [isMaxHub, setisMaxHub] = useState(false)
+  const { SceneId, setLandScape, setIpad, LandScape, Ipad, count, setcount, Assets, starCount, setstarCount } = useContext(SceneContext);
 
   const Map = [FrogEndMap, MonkeyEndMap, IntroMap, FrogMap, SelectMap, HomeMap]
   const Asset = useAllAsset(Map)
 
   const resizer = () => {
     setIpad(window.innerWidth / window.innerHeight >= 1.3 && window.innerWidth / window.innerHeight <= 1.44)
+    setisMaxHub(window.innerWidth / window.innerHeight === 1.6)
     setLandScape(window.innerWidth / window.innerHeight < 1.0)
   }
 
@@ -47,17 +50,19 @@ function App() {
 
     window.addEventListener("resize", resizer)
     setIpad(window.innerWidth / window.innerHeight >= 1.3 && window.innerWidth / window.innerHeight <= 1.44)
+    setisMaxHub(window.innerWidth / window.innerHeight === 1.6)
 
     return () => {
       window.removeEventListener("resize", resizer)
     }
   }, []);
 
+  console.log(window.innerWidth / window.innerHeight, isMaxHub, "ratio")
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("ee02_nt_1to10_brn/sounds/bg_sound.mp3"))
-    seticon1(await LoadImage("ee02_nt_1to10_brn/images/sound.svg"))
-    seticon2(await LoadImage("ee02_nt_1to10_brn/images/nosound.svg"))
+    setBG_sound(await AudioPlayer2("ee02_nt_41to50_brn/sounds/bg_sound.mp3"))
+    seticon1(await LoadImage("ee02_nt_41to50_brn/images/sound.svg"))
+    seticon2(await LoadImage("ee02_nt_41to50_brn/images/nosound.svg"))
 
   }
 
@@ -93,6 +98,42 @@ function App() {
     <>
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">Rotate your device</h1>
 
+      {/* frog star */}
+      {SceneId === "/frog" && !LandScape && <Stars
+        Ipad={Ipad}
+        count={count}
+        board={Assets?.frog?.sprites[1]}
+        grey={Assets?.frog?.sprites[2]}
+        color={Assets?.frog?.sprites[3]}
+        styles={[
+
+          "root_star_pos",
+          { position: 'absolute', width: '100%', left: "0%" },
+          "flower_star_1",
+          "flower_star_2",
+          "flower_star_3",
+          "flower_star_4",
+          "flower_star_5",
+        ]} />
+      }
+
+      {/* monkey star */}
+      {SceneId === "/" && !LandScape && <Stars2
+        Ipad={Ipad}
+        count={starCount}
+        board={Assets?.intro?.sprites[2]}
+        grey={Assets?.intro?.sprites[3]}
+        color={Assets?.intro?.sprites[4]}
+        styles={["root_star_pos2",
+          { position: 'absolute', width: '100%', left: "0%" },
+          "b_star_1",
+          "b_star_2",
+          "b_star_3",
+          "b_star_4",
+          "b_star_5",
+        ]}
+      />}
+
       <div style={{ opacity: LandScape ? 0 : 1 }}>
         <GameContainer>
           {!mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
@@ -115,7 +156,7 @@ function App() {
           </Router>
 
           <Router sceneId="/">
-            <Intro />
+            <Intro isMaxHub={isMaxHub} />
           </Router>
 
           <Router sceneId="/frog">
