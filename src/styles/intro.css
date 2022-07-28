@@ -221,13 +221,24 @@
 .swing_5{
   position: absolute;
   bottom: 0%;
-  z-index: 0;
+  z-index: 1;
   width: 39%;
   height: 67%;
   top: 10.5%;
   left: 45%;
 }
 
+
+.b_tree{
+  position: absolute;
+  bottom: 0%;
+  z-index: 0;
+  width: 35%;
+  height: 75%;
+  top: 15.5%;
+  left: 55%;
+  z-index: 0;
+}
 /* only for surface pro 7 */
 @media (width:1368px){
   .swing_1{

@@ -19,7 +19,6 @@ export default function useAllAsset(ArrayMap) {
 
     const Assetz = {}
     ArrayMap?.forEach(Map => {
-      console.log(Map.id)
       const newSceneData = {
         sounds: [],
         Bg: "",

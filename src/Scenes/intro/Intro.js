@@ -49,11 +49,11 @@ export default function Intro({ isMaxHub }) {
       setfirst(false)
     }
 
-    const one = randomInt(41, 50)
-    let two = randomInt(41, 50)
+    const one = randomInt(31, 40)
+    let two = randomInt(31, 40)
 
     while (two === one) {
-      two = randomInt(41, 50)
+      two = randomInt(31, 40)
     }
 
 
@@ -134,7 +134,6 @@ export default function Intro({ isMaxHub }) {
           setswing(false)
           setcount(countRef.current + 1)
           setcountp1(0)
-          console.log("completed honey");
           // }
 
         })
@@ -272,7 +271,6 @@ export default function Intro({ isMaxHub }) {
     }
   }
 
-  console.log(isMaxHub, "ss")
 
   return <Scenes
     Bg={Bg}
@@ -372,7 +370,12 @@ export default function Intro({ isMaxHub }) {
           src={intro?.sprites[0]}
         />
 
+        {/* tree */}
 
+        <Image
+          className="b_tree"
+          src={Assets?.select?.sprites[5]}
+        />
 
         <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0, top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}></div>
         <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1, top: Ipad ? "-23%" : (isMaxHub ? "6.5%" : "") }}></div>

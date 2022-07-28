@@ -91,6 +91,11 @@ export default function MonkeyEnd({ stop }) {
           style={{ top: Ipad ? "-26%" : "" }}
         />
 
+        {/* tree */}
+        <Image
+          className="b_tree"
+          src={Assets?.select?.sprites[5]}
+        />
 
         <div ref={Ref} className="standing_monkey" style={{ bottom: Ipad ? "0%" : "" }}></div>
 

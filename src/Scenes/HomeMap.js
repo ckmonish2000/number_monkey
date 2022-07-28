@@ -11,6 +11,7 @@ const HomeMap = {
     `${imgurl}intro/intro_bg_title.svg`,
     `${imgurl}stone/stone_2.svg`,
     `${imgurl}stone/stone_1.svg`,
+    `${imgurl}banana_tree.svg`,
   ],
 
 
