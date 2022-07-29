@@ -59,9 +59,9 @@ function App() {
 
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("ee02_nt_31to40_brn/sounds/bg_sound.mp3"))
-    seticon1(await LoadImage("ee02_nt_31to40_brn/images/sound.svg"))
-    seticon2(await LoadImage("ee02_nt_31to40_brn/images/nosound.svg"))
+    setBG_sound(await AudioPlayer2("ee02_nt_21to30_brn/sounds/bg_sound.mp3"))
+    seticon1(await LoadImage("ee02_nt_21to30_brn/images/sound.svg"))
+    seticon2(await LoadImage("ee02_nt_21to30_brn/images/nosound.svg"))
 
   }
 

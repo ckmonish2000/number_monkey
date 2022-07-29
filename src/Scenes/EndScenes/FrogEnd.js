@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 
 export default function FrogEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(FrogEndMap)
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { setcount, SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { frog2 } = Assets
   const { Bg, setBg } = useContext(BGContext)
   const [IsLoading, setIsLoading] = useState(true);
@@ -140,6 +140,7 @@ export default function FrogEnd({ stop }) {
             const bg = document.querySelector(".Bg_Image")
             Assets?.frog2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
+            setcount(0)
             stop()
             setSceneId("/home")
           }}

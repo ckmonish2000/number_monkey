@@ -49,11 +49,11 @@ export default function Intro({ isMaxHub }) {
       setfirst(false)
     }
 
-    const one = randomInt(31, 40)
-    let two = randomInt(31, 40)
+    const one = randomInt(21, 30)
+    let two = randomInt(21, 30)
 
     while (two === one) {
-      two = randomInt(31, 40)
+      two = randomInt(21, 30)
     }
 
 
@@ -153,7 +153,10 @@ export default function Intro({ isMaxHub }) {
     if (starCount === 6) {
       stop_all_sounds()
       if (timer) clearTimeout(timer)
-      setSceneId("/mend")
+      setswing(false)
+      setTimeout(() => {
+        setSceneId("/mend")
+      }, 1200)
     }
   }, [starCount])
 

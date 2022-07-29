@@ -35,11 +35,11 @@ export default function Frog() {
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const one = randomInt(31, 40)
-    let two = randomInt(31, 40)
+    const one = randomInt(21, 30)
+    let two = randomInt(21, 30)
 
     while (two === one) {
-      two = randomInt(31, 40)
+      two = randomInt(21, 30)
     }
 
 

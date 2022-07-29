@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 
 export default function MonkeyEnd({ stop }) {
   // const { Bg, Loading } = useLoadAsset(MonkeyEndMap)
-  const { SceneId, setSceneId, Assets, setAssets, Ipad } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, Ipad, setstarCount } = useContext(SceneContext);
   const { intro2 } = Assets
   const { Bg, setBg } = useContext(BGContext)
   const [IsLoading, setIsLoading] = useState(true);
@@ -104,6 +104,7 @@ export default function MonkeyEnd({ stop }) {
             const bg = document.querySelector(".Bg_Image")
             Assets?.intro2?.sounds?.map(v => v.stop())
             bg.style.transform = ""
+            setstarCount(1)
             stop()
             setSceneId("/home")
           }}
